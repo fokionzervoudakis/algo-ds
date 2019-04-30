@@ -1,0 +1,11 @@
+.DS_Store
+
+/.idea/
+/build/
+/out/
+/testdata/tmp/
+
+/algo-ds.iml
+
+Foo.java
+
