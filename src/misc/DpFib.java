@@ -33,7 +33,7 @@ class DpFib {
             if (M.containsKey(n)) {
                 return M.get(n);
             } else {
-                int f = (n < 2) ? n : fib(n - 1) + fib(n - 2);
+                int f = (n < 2) ? n : (fib(n - 1) + fib(n - 2));
                 M.put(n, f);
                 return f;
             }
@@ -57,7 +57,7 @@ class DpFib {
         int fib(int n) {
             int[] A = new int[n + 1];
             for (int i = 0; i <= n; i++) {
-                A[i] = (i < 2) ? i : A[i - 1] + A[i - 2];
+                A[i] = (i < 2) ? i : (A[i - 1] + A[i - 2]);
             }
             return A[n];
         }
