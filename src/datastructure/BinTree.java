@@ -4,10 +4,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-// TODO asymptotic analysis
+/**
+ Asymptotic analysis:
+ <ul>
+
+ <li>space_avg=O(log n)
+ <li>space_worst=O(n)
+
+ <li>depth_avg=O(log n)
+ <li>depth_worst=O(n)
+
+ <li>height_worst=O(n)
+
+ <li>size_worst=O(n)
+
+ <li>preOrder_worst=O(n)
+ <li>inorder_worst=O(n)
+ <li>postOrder_worst=O(n)
+ <li>itPreOrder_worst=O(n)
+
+ <li>invert_worst=O(n)
+
+ <li>lca_worst=O(n)
+
+ </ul>
+ */
 class BinTree {
     Node root;
 
+    /**
+     Asymptotic analysis:
+     <ul>
+     <li>time_avg=O(log n)
+     <li>time_worst=O(n)
+     <li>space_worst=O(1)
+     </ul>
+     */
     int depth(Node n) {
         int d = 0;
         while (n != root) {
@@ -62,14 +94,6 @@ class BinTree {
         return 1 + size(n.l) + size(n.r);
     }
 
-    /**
-     Asymptotic analysis:
-     <ul>
-     <li>time_worst=O(n)
-     <li>space_avg=O(log n)
-     <li>space_worst=O(n)
-     </ul>
-     */
     List<Node> preOrder(Node n, List<Node> L) {
         if (n != null) {
             L.add(n);
