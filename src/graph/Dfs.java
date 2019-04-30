@@ -24,9 +24,9 @@ class Dfs {
         }
 
         // TODO cycle detection
-        private void dfsVisit(Graph G, Vertex s) {
+        private void dfsVisit(Graph G, Vertex start) {
             Stack<Vertex> S = new Stack<>();
-            S.push(s);
+            S.push(start);
             while (!S.isEmpty()) {
                 Vertex u = S.pop();
                 u.visited = true;

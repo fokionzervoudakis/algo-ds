@@ -19,16 +19,16 @@ class Prim {
      </ul>
 
      @param G a graph
-     @param s a source vertex in {@code G}
+     @param start a source vertex in {@code G}
      @return a list of vertices that form the minimum spanning tree of {@code G}
      */
-    List<Vertex> minSpanTree(List<Vertex> G, Vertex s) {
+    List<Vertex> minSpanTree(List<Vertex> G, Vertex start) {
         Queue<Vertex> Q = new PriorityQueue<>(Comparator.comparingInt(o -> o.d));
         Q.addAll(G);
 
         Set<Vertex> S = new LinkedHashSet<>();
 
-        s.d = 0;
+        start.d = 0;
 
         while (!Q.isEmpty()) {
             Vertex u = Q.remove();

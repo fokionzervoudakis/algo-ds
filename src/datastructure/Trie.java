@@ -20,20 +20,20 @@ import java.util.Map;
 class Trie {
     Node root = new Node();
 
-    void insert(String s) {
+    void insert(String str) {
         Node n = root;
-        for (char c : s.toCharArray()) {
+        for (char c : str.toCharArray()) {
             if (!n.contains(c)) {
                 n.put(c, new Node());
             }
             n = n.get(c);
         }
-        n.val = s;
+        n.val = str;
     }
 
-    Node lookup(String s) {
+    Node lookup(String str) {
         Node n = root;
-        for (char c : s.toCharArray()) {
+        for (char c : str.toCharArray()) {
             if (n.contains(c)) {
                 n = n.get(c);
             } else {

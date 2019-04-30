@@ -17,12 +17,12 @@ class Bfs {
      * </ul>
      *
      * @param G a graph
-     * @param s the source vertex in {@code G}
+     * @param start the source vertex in {@code G}
      */
-    void bfs(Graph G, Vertex s) {
+    void bfs(Graph G, Vertex start) {
         List<Vertex> Q = new ArrayList<>();
-        Q.add(s);
-        s.visited = true;
+        Q.add(start);
+        start.visited = true;
         while (!Q.isEmpty()) {
             Vertex u = Q.remove(0);
             for (Vertex v : G.outEdges(u)) {
