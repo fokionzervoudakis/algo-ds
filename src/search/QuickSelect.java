@@ -7,9 +7,9 @@ class QuickSelect {
     /**
      Asymptotic analysis:
      <ul>
-     <li>time_best=O(n)
-     <li>time_avg=O(n)
-     <li>time_worst=O(n^2)
+     <li>time_best=O(n) with uniformly distributed data
+     <li>time_avg=O(n) with uniformly distributed data
+     <li>time_worst=O(n^2) with sorted data and the first element as pivot
      <li>space_worst=O(1)
      </ul>
 

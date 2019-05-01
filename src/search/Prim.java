@@ -14,8 +14,8 @@ class Prim {
      Uses Prim's algorithm to find the minimum spanning tree of an undirected
      acyclic graph {@code G} from a source vertex {@code s}.
      <ul>
-     <li>time with min priority queue: O(E + V log V)
-     <li>time without min priority queue: O(V^2)
+     <li>time_worst=O(V log V + E log V) with min heap implementation
+     <li>time_worst=O(V^2) with array implementation
      </ul>
 
      @param G a graph
@@ -31,6 +31,7 @@ class Prim {
         start.d = 0;
 
         while (!Q.isEmpty()) {
+            // O(V log V)
             Vertex u = Q.remove();
             S.add(u);
             for (Vertex v : u.adj()) {
@@ -39,7 +40,7 @@ class Prim {
                     if (v.d > d) {
                         v.d = d;
                         v.p = u;
-                        // Update the heap.
+                        // Update the heap: O(E log V)
                         Q.add(Q.remove());
                     }
                 }
