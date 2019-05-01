@@ -2,6 +2,7 @@ package rand;
 
 import annotation.PseudoRandom;
 
+import java.util.HashMap;
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -22,14 +23,13 @@ class AlgorithmR {
      */
     @PseudoRandom
     int pick(int[] A) {
-        int i = 0, out = i;
-        for (int n : A) {
+        int n = 0;
+        for (int i = 0; i < A.length; i++) {
             if (i == 0 || rand(1, i + 1) == 1) {
-                out = n;
+                n = A[i];
             }
-            i++;
         }
-        return out;
+        return n;
     }
 
     private int rand(int min, int max) {
@@ -37,10 +37,17 @@ class AlgorithmR {
     }
 
     public static void main(String[] args) {
-        var algorithmA = new AlgorithmR();
-        var A = IntStream.range(0, 100).toArray();
-        for (int i = 0; i < 10; i++) {
-            System.out.println(algorithmA.pick(A));
+        var max = 10000;
+        var A = IntStream.range(0, 10).toArray();
+        var R = new AlgorithmR();
+        var M = new HashMap<Integer, Double>();
+        for (var i = 0; i < max; i++) {
+            var n = R.pick(A);
+            M.put(n, M.containsKey(n) ? M.get(n) + 1 : 1);
         }
+        for (var E : M.entrySet()) {
+            M.put(E.getKey(), E.getValue() / max);
+        }
+        System.out.println(M);
     }
 }
