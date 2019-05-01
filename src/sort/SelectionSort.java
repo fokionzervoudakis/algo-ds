@@ -12,6 +12,8 @@ class SelectionSort {
      <li>time_worst=O(n^2)
      <li>space_worst=O(1)
      </ul>
+
+     @param A the array to be sorted
      */
     @InPlace
     @Unstable

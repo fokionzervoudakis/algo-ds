@@ -1,6 +1,8 @@
 package sort;
 
 import annotation.NotInPlace;
+import annotation.Pattern;
+import annotation.Pattern.Type;
 import annotation.Stable;
 
 import java.util.Arrays;
@@ -14,9 +16,13 @@ class MergeSort {
      <li>time_worst=O(n log n)
      <li>space_worst=O(n)
      </ul>
+
+     @param A the array to be sorted
+     @return a copy of {@code A} with elements sorted into ascending order
      */
     @NotInPlace
     @Stable
+    @Pattern(Type.DIVIDE_AND_CONQUER)
     int[] sort(int[] A) {
         int n = A.length;
         if (n < 2) {

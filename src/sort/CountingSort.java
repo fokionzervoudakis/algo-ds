@@ -12,6 +12,8 @@ class CountingSort {
      <li>time_worst=O(n+k)
      <li>space_worst=O(k)
      </ul>
+
+     @param A the array to be sorted
      */
     @NotInPlace
     @Stable

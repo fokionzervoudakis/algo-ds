@@ -2,6 +2,8 @@ package search;
 
 import annotation.Bitwise;
 import annotation.InPlace;
+import annotation.Pattern;
+import annotation.Pattern.Type;
 
 class QuickSelect {
     /**
@@ -12,6 +14,8 @@ class QuickSelect {
      <li>time_worst=O(n^2) with sorted data and the first element as pivot
      <li>space_worst=O(1)
      </ul>
+     Based on Lomuto's partition scheme, which uses {@code x=A[r]} as pivot
+     element.
 
      @param A the array to be searched
      @param k the {@code k}th smallest element to be searched for
@@ -20,22 +24,23 @@ class QuickSelect {
      */
     @Bitwise
     @InPlace
+    @Pattern(Type.DIVIDE_AND_CONQUER)
     Integer it(int[] A, int k) {
         int l = 0, r = A.length - 1;
         while (r >= l) {
             int mid = (l + r) >>> 1;
             swap(A, mid, r);
-            int pivot = l;
-            for (int i = l; i < r; i++) {
-                if (A[i] < A[r]) {
-                    swap(A, i, pivot++);
+            int i = l;
+            for (int j = l; j < r; j++) {
+                if (A[j] < A[r]) {
+                    swap(A, i++, j);
                 }
             }
-            swap(A, pivot, r);
-            if (pivot < k) {
-                l = pivot + 1;
-            } else if (pivot > k) {
-                r = pivot - 1;
+            swap(A, i, r);
+            if (i < k) {
+                l = i + 1;
+            } else if (i > k) {
+                r = i - 1;
             } else {
                 return A[k];
             }

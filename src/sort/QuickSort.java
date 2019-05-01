@@ -1,6 +1,8 @@
 package sort;
 
 import annotation.InPlace;
+import annotation.Pattern;
+import annotation.Pattern.Type;
 import annotation.Unstable;
 
 class QuickSort {
@@ -12,9 +14,14 @@ class QuickSort {
      <li>time_worst=O(n^2)
      <li>space_worst=O(log n)
      </ul>
+     Based on Lomuto's partition scheme, which uses {@code x=A[r]} as pivot
+     element.
+
+     @param A the array to be sorted
      */
     @InPlace
     @Unstable
+    @Pattern(Type.DIVIDE_AND_CONQUER)
     void sort(int[] A) {
         sort(A, 0, A.length - 1);
     }
@@ -28,14 +35,14 @@ class QuickSort {
     }
 
     private int partition(int[] A, int l, int r) {
-        int pivot = l;
-        for (int i = l; i < r; i++) {
-            if (A[i] < A[r]) {
-                swap(A, i, pivot++);
+        int i = l;
+        for (int j = l; j < r; j++) {
+            if (A[j] < A[r]) {
+                swap(A, i++, j);
             }
         }
-        swap(A, pivot, r);
-        return pivot;
+        swap(A, i, r);
+        return i;
     }
 
     private void swap(int[] A, int i, int j) {
