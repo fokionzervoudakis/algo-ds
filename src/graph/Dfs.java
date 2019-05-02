@@ -15,7 +15,7 @@ class Dfs {
          *
          * @param G a graph
          */
-        void dfs(Graph G) {
+        void dfs(Graph<Vertex> G) {
             for (Vertex v : G) {
                 if (!v.visited) {
                     dfsVisit(G, v);
@@ -24,7 +24,7 @@ class Dfs {
         }
 
         // TODO cycle detection
-        private void dfsVisit(Graph G, Vertex start) {
+        private void dfsVisit(Graph<Vertex> G, Vertex start) {
             Stack<Vertex> S = new Stack<>();
             S.push(start);
             while (!S.isEmpty()) {
@@ -51,7 +51,7 @@ class Dfs {
          *
          * @param G a graph
          */
-        void dfs(Graph G) {
+        void dfs(Graph<Vertex> G) {
             for (Vertex v : G) {
                 if (!v.visited) {
                     dfsVisit(G, v);
@@ -60,7 +60,7 @@ class Dfs {
         }
 
         // TODO cycle detection
-        private void dfsVisit(Graph G, Vertex u) {
+        private void dfsVisit(Graph<Vertex> G, Vertex u) {
             u.visited = true;
             for (Vertex v : G.outEdges(u)) {
                 if (!v.visited) {

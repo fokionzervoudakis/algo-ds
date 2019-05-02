@@ -1,24 +1,21 @@
 package graph;
 
-import graph.ObjGraph.ObjVertex;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-class BfsTest_ObjGraph_2 {
-    private Graph G;
-    private Vertex v0;
-    private Bfs bfs;
+class ColoringTest_AdjList_2 {
+    private Graph<Coloring.Vertex> G;
+    private Coloring.Vertex v0;
+    private Coloring.Bfs bfs;
 
     @BeforeEach
     void beforeEach() {
         v0 = new Stub(0);
-        G = new ObjGraph(3);
-        bfs = new Bfs();
+        G = new AdjList<>();
+        bfs = new Coloring().new Bfs();
     }
 
     @Test
@@ -26,9 +23,9 @@ class BfsTest_ObjGraph_2 {
         // v0 -> v0
         G.addEdge(v0, v0);
 
-        bfs.bfs(G, v0);
+        assertFalse(bfs.isBipartite(G, v0));
 
-        var expected = "[0:0=[0:0], null, null]";
+        var expected = "{0:WH:0=[0:WH:0]}";
         var actual = G.toString();
 
         assertEquals(expected, actual);
@@ -42,9 +39,9 @@ class BfsTest_ObjGraph_2 {
         G.addEdge(v0, v1);
         G.addEdge(v1, v0);
 
-        bfs.bfs(G, v0);
+        assertFalse(bfs.isBipartite(G, v0));
 
-        var expected = "[0:0=[1:1], 1:1=[0:0], null]";
+        var expected = "{0:WH:0=[1:BK:1], 1:BK:1=[0:WH:0]}";
         var actual = G.toString();
 
         assertEquals(expected, actual);
@@ -60,28 +57,23 @@ class BfsTest_ObjGraph_2 {
         G.addEdge(v1, v2);
         G.addEdge(v2, v0);
 
-        bfs.bfs(G, v0);
+        assertFalse(bfs.isBipartite(G, v0));
 
-        var expected = "[0:0=[1:1], 1:1=[2:2], 2:2=[0:0]]";
+        var expected = "{0:WH:0=[1:BK:1], 1:BK:1=[2:WH:2], 2:WH:2=[0:WH:0]}";
         var actual = G.toString();
 
         assertEquals(expected, actual);
     }
 
     //<editor-fold desc="stubs">
-    class Stub extends ObjVertex {
+    class Stub extends Coloring.Vertex {
         Stub(int key) {
             super(key);
         }
 
         @Override
         public String toString() {
-            return key + ":" + d + "=" + toS(L);
-        }
-
-        @Override
-        String toS(List<Vertex> L) {
-            return L.stream().map(v -> v.key + ":" + v.d).collect(Collectors.joining(", ", "[", "]"));
+            return super.toString() + ":" + d;
         }
     }
     //</editor-fold>

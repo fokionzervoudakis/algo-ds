@@ -15,7 +15,7 @@ class BfsTest_AdjMatrix_3 {
         var v5 = new Stub(5);
         var v6 = new Stub(6);
 
-        var G = new AdjMatrix(7);
+        var G = new AdjMatrix<>(7);
 
         G.addEdge(v0, v1);
         G.addEdge(v0, v2);

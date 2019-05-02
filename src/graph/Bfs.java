@@ -19,7 +19,7 @@ class Bfs {
      * @param G a graph
      * @param start the source vertex in {@code G}
      */
-    void bfs(Graph G, Vertex start) {
+    void bfs(Graph<Vertex> G, Vertex start) {
         List<Vertex> Q = new ArrayList<>();
         Q.add(start);
         start.visited = true;

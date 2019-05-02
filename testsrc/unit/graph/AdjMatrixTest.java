@@ -8,12 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AdjMatrixTest {
-    private AdjMatrix M;
+    private AdjMatrix<Vertex> M;
     private Vertex v0;
 
     @BeforeEach
     void beforeEach() {
-        M = new AdjMatrix(3);
+        M = new AdjMatrix<>(3);
         v0 = new Vertex(0);
     }
 

@@ -2,16 +2,16 @@ package graph;
 
 import java.util.List;
 
-public interface Graph extends Iterable<Vertex> {
-    void addVertex(Vertex u);
+public interface Graph<T extends Vertex> extends Iterable<T> {
+    void addVertex(T u);
 
-    void addEdge(Vertex u, Vertex v);
+    void addEdge(T u, T v);
 
-    void removeEdge(Vertex u, Vertex v);
+    void removeEdge(T u, T v);
 
-    boolean hasEdge(Vertex u, Vertex v);
+    boolean hasEdge(T u, T v);
 
-    List<Vertex> inEdges(Vertex u);
+    List<T> inEdges(T u);
 
-    List<Vertex> outEdges(Vertex u);
+    List<T> outEdges(T u);
 }

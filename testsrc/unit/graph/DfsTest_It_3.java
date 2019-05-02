@@ -15,7 +15,7 @@ class DfsTest_It_3 {
         var v5 = new Vertex(5);
         var v6 = new Vertex(6);
 
-        var G = new AdjList();
+        var G = new AdjList<>();
 
         G.addEdge(v0, v1);
         G.addEdge(v0, v2);

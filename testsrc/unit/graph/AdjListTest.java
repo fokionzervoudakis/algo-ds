@@ -8,12 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AdjListTest {
-    private AdjList L;
+    private AdjList<Vertex> L;
     private Vertex v0;
 
     @BeforeEach
     void beforeEach() {
-        L = new AdjList();
+        L = new AdjList<>();
         v0 = new Vertex(0);
     }
 

@@ -1,31 +1,31 @@
 package graph;
 
-import graph.ObjGraph.ObjVertex;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class BfsTest_ObjGraph_1 {
-    private Graph G;
-    private Vertex v0;
-    private Bfs bfs;
+class ColoringTest_AdjList_1 {
+    private Graph<Coloring.Vertex> G;
+    private Coloring.Vertex v0;
+    private Coloring.Bfs bfs;
 
     @BeforeEach
     void beforeEach() {
         v0 = new Stub(0);
 
-        G = new ObjGraph(3);
+        G = new AdjList<>();
         G.addVertex(v0);
 
-        bfs = new Bfs();
+        bfs = new Coloring().new Bfs();
     }
 
     @Test
     void itSearchesOneVertexWithZeroNeighbors() {
-        bfs.bfs(G, v0);
+        assertTrue(bfs.isBipartite(G, v0));
 
-        var expected = "[0:0=[], null, null]";
+        var expected = "{0:WH:0=[]}";
         var actual = G.toString();
 
         assertEquals(expected, actual);
@@ -35,9 +35,9 @@ class BfsTest_ObjGraph_1 {
     void itSearchesOneVertexWithOneNeighbor() {
         G.addEdge(v0, new Stub(1));
 
-        bfs.bfs(G, v0);
+        assertTrue(bfs.isBipartite(G, v0));
 
-        var expected = "[0:0=[1:1=[]], 1:1=[], null]";
+        var expected = "{0:WH:0=[1:BK:1], 1:BK:1=[]}";
         var actual = G.toString();
 
         assertEquals(expected, actual);
@@ -48,23 +48,23 @@ class BfsTest_ObjGraph_1 {
         G.addEdge(v0, new Stub(1));
         G.addEdge(v0, new Stub(2));
 
-        bfs.bfs(G, v0);
+        assertTrue(bfs.isBipartite(G, v0));
 
-        var expected = "[0:0=[1:1=[], 2:1=[]], 1:1=[], 2:1=[]]";
+        var expected = "{0:WH:0=[1:BK:1, 2:BK:1], 1:BK:1=[], 2:BK:1=[]}";
         var actual = G.toString();
 
         assertEquals(expected, actual);
     }
 
     //<editor-fold desc="stubs">
-    class Stub extends ObjVertex {
+    class Stub extends Coloring.Vertex {
         Stub(int key) {
             super(key);
         }
 
         @Override
         public String toString() {
-            return key + ":" + d + "=" + L;
+            return super.toString() + ":" + d;
         }
     }
     //</editor-fold>

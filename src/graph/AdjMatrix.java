@@ -20,40 +20,40 @@ import java.util.List;
  <li>space=O(n^2)
  </ul>
  */
-class AdjMatrix implements Graph {
+class AdjMatrix<T extends Vertex> implements Graph<T> {
     private int n;
-    private Vertex[][] M;
+    private T[][] M;
 
     AdjMatrix(int n) {
         this.n = n;
-        this.M = new Vertex[n][n];
+        this.M = (T[][]) new Vertex[n][n];
     }
 
     @Override
-    public void addVertex(Vertex u) {
+    public void addVertex(T u) {
         M[u.key][u.key] = u;
     }
 
     @Override
-    public void addEdge(Vertex u, Vertex v) {
+    public void addEdge(T u, T v) {
         addVertex(u);
         addVertex(v);
         M[u.key][v.key] = v;
     }
 
     @Override
-    public void removeEdge(Vertex u, Vertex v) {
+    public void removeEdge(T u, T v) {
         M[u.key][v.key] = null;
     }
 
     @Override
-    public boolean hasEdge(Vertex u, Vertex v) {
+    public boolean hasEdge(T u, T v) {
         return M[u.key][v.key] != null;
     }
 
     @Override
-    public List<Vertex> inEdges(Vertex u) {
-        var L = new ArrayList<Vertex>();
+    public List<T> inEdges(T u) {
+        var L = new ArrayList<T>();
         for (int i = 0; i < n; i++) {
             if (i != u.key) {
                 var v = M[i][u.key];
@@ -66,8 +66,8 @@ class AdjMatrix implements Graph {
     }
 
     @Override
-    public List<Vertex> outEdges(Vertex u) {
-        var L = new ArrayList<Vertex>();
+    public List<T> outEdges(T u) {
+        var L = new ArrayList<T>();
         for (int j = 0; j < n; j++) {
             if (j != u.key) {
                 var v = M[u.key][j];
@@ -80,8 +80,8 @@ class AdjMatrix implements Graph {
     }
 
     @Override
-    public Iterator<Vertex> iterator() {
-        var L = new ArrayList<Vertex>();
+    public Iterator<T> iterator() {
+        var L = new ArrayList<T>();
         for (int i = 0; i < n; i++) {
             var v = M[i][i];
             if (v != null) {

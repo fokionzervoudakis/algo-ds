@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DfsTest_Rec_2 {
-    private Graph G;
+    private Graph<Vertex> G;
     private Vertex v0;
     private Dfs.Rec dfs;
 
@@ -14,7 +14,7 @@ class DfsTest_Rec_2 {
     void beforeEach() {
         v0 = new Vertex(0);
 
-        G = new AdjList();
+        G = new AdjList<>();
         G.addVertex(v0);
 
         dfs = new Dfs().new Rec();

@@ -1,14 +1,11 @@
 package graph;
 
-import graph.ObjGraph.ObjVertex;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-class BfsTest_ObjGraph_3 {
+class ColoringTest_AdjList_3 {
     @Test
     void itSearchesManyVerticesWithManyNeighbors() {
         var v0 = new Stub(0);
@@ -19,7 +16,7 @@ class BfsTest_ObjGraph_3 {
         var v5 = new Stub(5);
         var v6 = new Stub(6);
 
-        var G = new ObjGraph(7);
+        var G = new AdjList<Coloring.Vertex>();
 
         G.addEdge(v0, v1);
         G.addEdge(v0, v2);
@@ -36,19 +33,19 @@ class BfsTest_ObjGraph_3 {
         G.addEdge(v1, v0); // ignored symmetric path: v0 -> v1 -> v0
         G.addEdge(v6, v0); // ignored asymmetric path: v0 -> v2 -> v6 -> v0
 
-        new Bfs().bfs(G, v0);
+        assertFalse(new Coloring().new Bfs().isBipartite(G, v0));
 
         //@formatter:off
         var expected =
-                "[" +
-                    "0:0=[1:1, 2:1, 4:1, 0:0], " +
-                    "1:1=[3:2, 5:2, 0:0], " +
-                    "2:1=[6:2], " +
-                    "3:2=[], " +
-                    "4:1=[5:2], " +
-                    "5:2=[], " +
-                    "6:2=[0:0]" +
-                "]";
+                "{" +
+                    "0:WH:0=[1:BK:1, 2:BK:1, 4:BK:1, 0:WH:0], " +
+                    "1:BK:1=[3:null:0, 5:null:0, 0:WH:0], " +
+                    "2:BK:1=[6:null:0], " +
+                    "4:BK:1=[5:null:0], " +
+                    "3:null:0=[], " +
+                    "5:null:0=[], " +
+                    "6:null:0=[0:WH:0]" +
+                "}";
         //@formatter:on
 
         var actual = G.toString();
@@ -57,19 +54,14 @@ class BfsTest_ObjGraph_3 {
     }
 
     //<editor-fold desc="stubs">
-    class Stub extends ObjVertex {
+    class Stub extends Coloring.Vertex {
         Stub(int key) {
             super(key);
         }
 
         @Override
         public String toString() {
-            return key + ":" + d + "=" + toS(L);
-        }
-
-        @Override
-        String toS(List<Vertex> L) {
-            return L.stream().map(v -> v.key + ":" + v.d).collect(Collectors.joining(", ", "[", "]"));
+            return super.toString() + ":" + d;
         }
     }
     //</editor-fold>

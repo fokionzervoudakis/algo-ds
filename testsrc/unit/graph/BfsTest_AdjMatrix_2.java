@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BfsTest_AdjMatrix_2 {
-    private Graph G;
+    private Graph<Vertex> G;
     private Vertex v0;
     private Bfs bfs;
 
     @BeforeEach
     void beforeEach() {
         v0 = new Stub(0);
-        G = new AdjMatrix(3);
+        G = new AdjMatrix<>(3);
         bfs = new Bfs();
     }
 

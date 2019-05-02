@@ -19,18 +19,18 @@ import java.util.Map;
  <li>space=O(V+E)
  </ul>
  */
-class AdjList implements Graph {
-    private Map<Vertex, List<Vertex>> M = new LinkedHashMap<>(); // Order for test determinism.
+class AdjList<T extends Vertex> implements Graph<T> {
+    private Map<T, List<T>> M = new LinkedHashMap<>(); // Order for test determinism.
 
     @Override
-    public void addVertex(Vertex u) {
+    public void addVertex(T u) {
         if (!M.containsKey(u)) {
             M.put(u, new ArrayList<>());
         }
     }
 
     @Override
-    public void addEdge(Vertex u, Vertex v) {
+    public void addEdge(T u, T v) {
         addVertex(u);
         addVertex(v);
         M.get(u).add(v);
@@ -38,7 +38,7 @@ class AdjList implements Graph {
 
 
     @Override
-    public void removeEdge(Vertex u, Vertex v) {
+    public void removeEdge(T u, T v) {
         var it = M.get(u).iterator();
         while (it.hasNext()) {
             if (it.next().equals(v)) {
@@ -49,13 +49,13 @@ class AdjList implements Graph {
     }
 
     @Override
-    public boolean hasEdge(Vertex u, Vertex v) {
+    public boolean hasEdge(T u, T v) {
         return M.get(u).contains(v);
     }
 
     @Override
-    public List<Vertex> inEdges(Vertex u) {
-        var L = new ArrayList<Vertex>();
+    public List<T> inEdges(T u) {
+        var L = new ArrayList<T>();
         M.forEach((v, adj) -> {
             if (adj.contains(u)) {
                 L.add(v);
@@ -65,12 +65,12 @@ class AdjList implements Graph {
     }
 
     @Override
-    public List<Vertex> outEdges(Vertex u) {
+    public List<T> outEdges(T u) {
         return M.get(u);
     }
 
     @Override
-    public Iterator<Vertex> iterator() {
+    public Iterator<T> iterator() {
         return new ArrayList<>(M.keySet()).iterator();
     }
 

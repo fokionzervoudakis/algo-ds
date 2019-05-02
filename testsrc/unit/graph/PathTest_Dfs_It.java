@@ -15,7 +15,7 @@ class PathTest_Dfs_It {
         var v5 = new Vertex(5);
         var v6 = new Vertex(6);
 
-        var G = new AdjMatrix(7);
+        var G = new AdjMatrix<>(7);
 
         G.addEdge(v0, v1);
         G.addEdge(v0, v2);
