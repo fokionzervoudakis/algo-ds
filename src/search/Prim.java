@@ -20,9 +20,9 @@ class Prim {
 
      @param G a graph
      @param start a source vertex in {@code G}
-     @return a list of vertices that form the minimum spanning tree of {@code G}
+     @return a set of vertices that form the minimum spanning tree of {@code G}
      */
-    List<Vertex> minSpanTree(List<Vertex> G, Vertex start) {
+    Set<Vertex> minSpanTree(List<Vertex> G, Vertex start) {
         Queue<Vertex> Q = new PriorityQueue<>(Comparator.comparingInt(o -> o.d));
         Q.addAll(G);
 
@@ -47,7 +47,7 @@ class Prim {
             }
         }
 
-        return new ArrayList<>(S);
+        return S;
     }
 
     //<editor-fold desc="graph">

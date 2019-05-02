@@ -21,9 +21,9 @@ class Dijkstra {
 
      @param G a graph
      @param start a source vertex in {@code G}
-     @return a list of vertices with enumerated shortest paths to {@code s}
+     @return a set of vertices with enumerated shortest paths to {@code s}
      */
-    List<Vertex> shortestPaths(List<Vertex> G, Vertex start) {
+    Set<Vertex> shortestPaths(List<Vertex> G, Vertex start) {
         Queue<Vertex> Q = new PriorityQueue<>(Comparator.comparingInt(o -> o.d));
         Q.addAll(G);
 
@@ -46,7 +46,7 @@ class Dijkstra {
             }
         }
 
-        return new ArrayList<>(S);
+        return S;
     }
 
     //<editor-fold desc="graph">
