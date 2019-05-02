@@ -11,27 +11,27 @@ class Regex {
      <li>space_worst=O(n)
      </ul>
 
-     @param s a string
+     @param str a string
      @param p a regex pattern
      @return true if {@code s} matches {@code p}, else false
      */
-    boolean match(String s, String p) {
+    boolean match(String str, String p) {
         if (p.isEmpty()) {
-            return s.isEmpty();
+            return str.isEmpty();
         }
 
         char c = p.charAt(0);
 
         // The first character will not be a wildcard.
-        boolean b = !s.isEmpty() && (c == '.' || c == s.charAt(0));
+        boolean b = !str.isEmpty() && (c == '.' || c == str.charAt(0));
 
         // If the second character is a wildcard...
         if (p.length() >= 2 && p.charAt(1) == '*') {
             // then the regex consumes either zero characters or one character,
-            return match(s, p.substring(2)) || (b && match(s.substring(1), p));
+            return match(str, p.substring(2)) || (b && match(str.substring(1), p));
         } else {
             // else the regex consumes one character.
-            return b && match(s.substring(1), p.substring(1));
+            return b && match(str.substring(1), p.substring(1));
         }
     }
 
@@ -45,31 +45,27 @@ class Regex {
          <li>space_worst=O(n)
          </ul>
 
-         @param s a string
+         @param str a string
          @param p a regex pattern
          @return true if {@code s} matches {@code p}, else false
          */
-        boolean match(String s, String p) {
-            if (M.containsKey(s)) {
-                return M.get(s);
+        boolean match(String str, String p) {
+            if (M.containsKey(str)) {
+                return M.get(str);
             } else {
                 boolean match;
-
                 if (p.isEmpty()) {
-                    match = s.isEmpty();
+                    match = str.isEmpty();
                 } else {
                     char c = p.charAt(0);
-
-                    boolean b = !s.isEmpty() && (c == '.' || c == s.charAt(0));
-
+                    boolean b = !str.isEmpty() && (c == '.' || c == str.charAt(0));
                     if (p.length() >= 2 && p.charAt(1) == '*') {
-                        match = match(s, p.substring(2)) || (b && match(s.substring(1), p));
+                        match = match(str, p.substring(2)) || (b && match(str.substring(1), p));
                     } else {
-                        match = b && match(s.substring(1), p.substring(1));
+                        match = b && match(str.substring(1), p.substring(1));
                     }
                 }
-
-                M.put(s, match);
+                M.put(str, match);
                 return match;
             }
         }
