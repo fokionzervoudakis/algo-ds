@@ -26,9 +26,9 @@ class GraphColor {
             for (Vertex v2 : v1.neighbors) {
                 S.add(v2.color);
             }
-            for (String s : B) {
-                if (!S.contains(s)) {
-                    v1.color = s;
+            for (String str : B) {
+                if (!S.contains(str)) {
+                    v1.color = str;
                     break;
                 }
             }
