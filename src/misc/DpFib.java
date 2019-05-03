@@ -1,11 +1,10 @@
 package misc;
 
-import annotation.DynamicProgramming;
+import annotation.dp.Memoization;
+import annotation.dp.Tabulation;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static annotation.DynamicProgramming.Type;
 
 /**
  MIT 6.006 Lecture 19: DP sub-problem dependencies must be acyclic. DP is thus
@@ -14,7 +13,6 @@ import static annotation.DynamicProgramming.Type;
  21).
  */
 class DpFib {
-    @DynamicProgramming(Type.MEMOIZATION)
     class Mem {
         Map<Integer, Integer> M = new HashMap<>();
 
@@ -29,6 +27,7 @@ class DpFib {
          @param n a number
          @return the {@code n}th Fibonacci number
          */
+        @Memoization
         int fib(int n) {
             if (M.containsKey(n)) {
                 return M.get(n);
@@ -40,7 +39,6 @@ class DpFib {
         }
     }
 
-    @DynamicProgramming(Type.TABULATION)
     class Tab {
         /**
          Uses iterative (bottom-up) dynamic programming with tabulation to
@@ -54,10 +52,11 @@ class DpFib {
          @param n a number
          @return the {@code n}th Fibonacci number
          */
+        @Tabulation
         int fib(int n) {
             int[] A = new int[n + 1];
             for (int i = 0; i <= n; i++) {
-                A[i] = (i < 2) ? i : (A[i - 1] + A[i - 2]);
+                A[i] = (i < 2) ? i : A[i - 1] + A[i - 2];
             }
             return A[n];
         }

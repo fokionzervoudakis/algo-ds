@@ -32,6 +32,6 @@ class Fib {
      @return the {@code n}th Fibonacci number
      */
     int rec(int n) {
-        return (n < 2) ? n : (rec(n - 1) + rec(n - 2));
+        return (n < 2) ? n : rec(n - 1) + rec(n - 2);
     }
 }

@@ -1,14 +1,12 @@
 package misc;
 
-import annotation.DynamicProgramming;
+import annotation.dp.Memoization;
+import annotation.dp.Tabulation;
 
 import java.util.Map;
 import java.util.TreeMap;
 
-import static annotation.DynamicProgramming.Type;
-
 class DpKnapsack {
-    @DynamicProgramming(Type.MEMOIZATION)
     class Mem {
         Map<String, Integer> M = new TreeMap<>();
 
@@ -27,6 +25,7 @@ class DpKnapsack {
          weights and {@code v} values when total weight is less than or equal to
          {@code S}
          */
+        @Memoization
         int max(int[] w, int[] v, int size) {
             return helper(w, v, 0, size);
         }
@@ -50,7 +49,6 @@ class DpKnapsack {
         }
     }
 
-    @DynamicProgramming(Type.TABULATION)
     class Tab {
         /**
          Uses iterative (bottom-up) dynamic programming with tabulation to solve
@@ -67,6 +65,7 @@ class DpKnapsack {
          weights and {@code v} values when total weight is less than or equal to
          {@code S}
          */
+        @Tabulation
         int max(int[] w, int[] v, int size) {
             int m = v.length;
             int[][] memo = new int[m + 1][size + 1];

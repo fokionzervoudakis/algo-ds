@@ -1,9 +1,8 @@
 package sort;
 
 import annotation.NotInPlace;
-import annotation.Pattern;
-import annotation.Pattern.Type;
 import annotation.Stable;
+import annotation.pattern.DivideAndConquer;
 
 import java.util.Arrays;
 
@@ -22,7 +21,7 @@ class MergeSort {
      */
     @NotInPlace
     @Stable
-    @Pattern(Type.DIVIDE_AND_CONQUER)
+    @DivideAndConquer
     int[] sort(int[] A) {
         int n = A.length;
         if (n < 2) {

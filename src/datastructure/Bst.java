@@ -1,8 +1,5 @@
 package datastructure;
 
-import annotation.Pattern;
-import annotation.Pattern.Type;
-
 /**
  Asymptotic analysis:
  <ul>
@@ -54,7 +51,6 @@ class Bst extends BinTree {
 
     // TODO node removal
 
-    @Pattern({ Type.GREEDY, Type.DIVIDE_AND_CONQUER })
     boolean isBst() {
         return isBst(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }

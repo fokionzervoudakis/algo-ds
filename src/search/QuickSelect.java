@@ -2,8 +2,7 @@ package search;
 
 import annotation.Bitwise;
 import annotation.InPlace;
-import annotation.Pattern;
-import annotation.Pattern.Type;
+import annotation.pattern.DivideAndConquer;
 
 class QuickSelect {
     /**
@@ -24,7 +23,7 @@ class QuickSelect {
      */
     @Bitwise
     @InPlace
-    @Pattern(Type.DIVIDE_AND_CONQUER)
+    @DivideAndConquer
     Integer it(int[] A, int k) {
         int l = 0, r = A.length - 1;
         while (r >= l) {

@@ -1,9 +1,8 @@
 package sort;
 
 import annotation.InPlace;
-import annotation.Pattern;
-import annotation.Pattern.Type;
 import annotation.Unstable;
+import annotation.pattern.DivideAndConquer;
 
 class QuickSort {
     /**
@@ -21,7 +20,7 @@ class QuickSort {
      */
     @InPlace
     @Unstable
-    @Pattern(Type.DIVIDE_AND_CONQUER)
+    @DivideAndConquer
     void sort(int[] A) {
         sort(A, 0, A.length - 1);
     }

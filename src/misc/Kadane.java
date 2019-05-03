@@ -1,11 +1,9 @@
 package misc;
 
-import annotation.DynamicProgramming;
-import annotation.DynamicProgramming.Type;
+import annotation.dp.Tabulation;
 
 import java.util.Arrays;
 
-@DynamicProgramming(Type.TABULATION)
 class Kadane {
     /**
      Uses Kadane's algorithm to calculate the largest sum of items in a
@@ -14,6 +12,7 @@ class Kadane {
      @param A an array of numbers
      @return the largest sum of items in a contiguous sub-array of {@code A}
      */
+    @Tabulation
     int max(int[] A) {
         int lMax = A[0], gMax = lMax;
         for (int i = 1; i < A.length; i++) {

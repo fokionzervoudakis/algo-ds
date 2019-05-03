@@ -1,8 +1,5 @@
 package datastructure;
 
-import annotation.Pattern;
-import annotation.Pattern.Type;
-
 import java.util.Arrays;
 
 /**
@@ -13,7 +10,6 @@ import java.util.Arrays;
  <li>lookup_worst=O(1)
  </ul>
  */
-@Pattern(Type.HASH_TABLE)
 class BloomFilter<T> {
     byte[] A;
 

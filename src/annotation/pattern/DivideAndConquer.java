@@ -1,16 +1,11 @@
-package annotation;
+package annotation.pattern;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.TYPE)
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.SOURCE)
-public @interface DynamicProgramming {
-    Type value();
-
-    enum Type {
-        MEMOIZATION, TABULATION
-    }
+public @interface DivideAndConquer {
 }
