@@ -32,7 +32,7 @@ class DpFib {
             if (M.containsKey(n)) {
                 return M.get(n);
             } else {
-                int f = (n < 2) ? n : (fib(n - 1) + fib(n - 2));
+                int f = (n < 2) ? n : fib(n - 1) + fib(n - 2);
                 M.put(n, f);
                 return f;
             }

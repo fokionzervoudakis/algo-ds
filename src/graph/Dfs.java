@@ -23,7 +23,6 @@ class Dfs {
             }
         }
 
-        // TODO cycle detection
         private void dfsVisit(Graph<Vertex> G, Vertex start) {
             Stack<Vertex> S = new Stack<>();
             S.push(start);
@@ -59,7 +58,6 @@ class Dfs {
             }
         }
 
-        // TODO cycle detection
         private void dfsVisit(Graph<Vertex> G, Vertex u) {
             u.visited = true;
             for (Vertex v : G.outEdges(u)) {
