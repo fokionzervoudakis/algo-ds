@@ -23,7 +23,7 @@ class DpKnapsack {
          @param size the size of the knapsack
          @return the max value that can be obtained from items with {@code w}
          weights and {@code v} values when total weight is less than or equal to
-         {@code S}
+         {@code size}
          */
         @Memoization
         int max(int[] w, int[] v, int size) {
@@ -63,7 +63,7 @@ class DpKnapsack {
          @param size the size of the knapsack
          @return the max value that can be obtained from items with {@code w}
          weights and {@code v} values when total weight is less than or equal to
-         {@code S}
+         {@code size}
          */
         @Tabulation
         int max(int[] w, int[] v, int size) {

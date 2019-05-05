@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 class Prim {
     /**
      Uses Prim's algorithm to find the minimum spanning tree of an undirected
-     acyclic graph {@code G} from a source vertex {@code s}.
+     acyclic graph {@code G} from a source vertex {@code start}.
      <ul>
      <li>time_worst=O(V log V + E log V) with min heap implementation
      <li>time_worst=O(V^2) with array implementation

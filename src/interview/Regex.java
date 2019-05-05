@@ -13,7 +13,7 @@ class Regex {
 
      @param str a string
      @param p a regex pattern
-     @return true if {@code s} matches {@code p}, else false
+     @return true if {@code str} matches {@code p}, else false
      */
     boolean match(String str, String p) {
         if (p.isEmpty()) {
@@ -47,7 +47,7 @@ class Regex {
 
          @param str a string
          @param p a regex pattern
-         @return true if {@code s} matches {@code p}, else false
+         @return true if {@code str} matches {@code p}, else false
          */
         boolean match(String str, String p) {
             if (M.containsKey(str)) {

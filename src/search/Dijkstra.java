@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 class Dijkstra {
     /**
      Uses Dijkstra's algorithm to generate the shortest paths from a source
-     vertex {@code s} to each vertex in a directed graph with non-negative edge
-     weights.
+     vertex {@code start} to each vertex in a directed graph with non-negative
+     edge weights.
      <ul>
      <li>time_worst=O(V log V + E log V) with min heap implementation
      <li>time_worst=O(V^2) with array implementation
@@ -21,7 +21,7 @@ class Dijkstra {
 
      @param G a graph
      @param start a source vertex in {@code G}
-     @return a set of vertices with enumerated shortest paths to {@code s}
+     @return a set of vertices with enumerated shortest paths to {@code start}
      */
     Set<Vertex> shortestPaths(List<Vertex> G, Vertex start) {
         Queue<Vertex> Q = new PriorityQueue<>(Comparator.comparingInt(o -> o.d));

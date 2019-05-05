@@ -5,15 +5,15 @@ import java.util.Stack;
 class Dfs {
     class It {
         /**
-         * Uses iterative depth-first search backed by a last-in-first-out data
-         * structure to detect cycles, and topologically sort all vertices, in a
-         * directed acyclic graph {@code G=(V,E)}.
-         * <ul>
-         * <li>time_worst=O(V+E)
-         * <li>space_worst=O(V)
-         * </ul>
-         *
-         * @param G a graph
+         Uses iterative depth-first search backed by a last-in-first-out data
+         structure to detect cycles, and topologically sort all vertices, in a
+         directed acyclic graph {@code G=(V,E)}.
+         <ul>
+         <li>time_worst=O(V+E)
+         <li>space_worst=O(V)
+         </ul>
+
+         @param G a graph
          */
         void dfs(Graph<Vertex> G) {
             for (Vertex v : G) {
@@ -41,14 +41,14 @@ class Dfs {
 
     class Rec {
         /**
-         * Uses recursive depth-first search to detect cycles, and topologically
-         * sort all vertices, in a directed acyclic graph {@code G=(V,E)}.
-         * <ul>
-         * <li>time_worst=O(V+E)
-         * <li>space_worst=O(V)
-         * </ul>
-         *
-         * @param G a graph
+         Uses recursive depth-first search to detect cycles, and topologically
+         sort all vertices, in a directed acyclic graph {@code G=(V,E)}.
+         <ul>
+         <li>time_worst=O(V+E)
+         <li>space_worst=O(V)
+         </ul>
+
+         @param G a graph
          */
         void dfs(Graph<Vertex> G) {
             for (Vertex v : G) {
