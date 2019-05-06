@@ -7,14 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-class DijkstraTest {
-    private Dijkstra dijkstra;
+class BellmanFTest {
+    private BellmanF bellmanF;
     private List<Vertex> G;
 
     @BeforeEach
     void beforeEach() {
-        dijkstra = new Dijkstra();
+        bellmanF = new BellmanF();
         G = new ArrayList<>();
     }
 
@@ -24,7 +25,7 @@ class DijkstraTest {
 
         G.add(v1);
 
-        dijkstra.shortestPaths(G, v1);
+        assertFalse(bellmanF.shortestPaths(G, v1));
 
         var expected = "[(0: null)]";
         var actual = G.toString();
@@ -33,7 +34,7 @@ class DijkstraTest {
     }
 
     @Test
-    void itGeneratesOneShortestPath() {
+    void itGeneratesOneShortestPathWithoutCycles() {
         var v1 = new Vertex();
         var v2 = new Vertex();
 
@@ -42,7 +43,7 @@ class DijkstraTest {
         G.add(v1);
         G.add(v2);
 
-        dijkstra.shortestPaths(G, v1);
+        assertFalse(bellmanF.shortestPaths(G, v1));
 
         var expected = "[(0: null), (10: (0: null))]";
         var actual = G.toString();
@@ -51,7 +52,7 @@ class DijkstraTest {
     }
 
     @Test
-    void itGeneratesManyShortestPaths() {
+    void itGeneratesManyShortestPathsWithoutCycles() {
         var v1 = new Vertex();
         var v2 = new Vertex();
         var v3 = new Vertex();
@@ -79,7 +80,7 @@ class DijkstraTest {
         G.add(v4);
         G.add(v5);
 
-        dijkstra.shortestPaths(G, v1);
+        assertFalse(bellmanF.shortestPaths(G, v1));
 
         //@formatter:off
         var expected =

@@ -2,8 +2,6 @@ package search;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import search.Prim.Edge;
-import search.Prim.Vertex;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,19 +19,21 @@ class PrimTest {
     }
 
     @Test
-    void itReturnsAMinimumSpanningTreeWithOneVertex() {
+    void itFindsAMinimumSpanningTreeWithOneVertex() {
         var v1 = new Vertex();
 
         G.add(v1);
 
+        prim.minSpanTree(G, v1);
+
         var expected = "[(0: null)]";
-        var actual = prim.minSpanTree(G, v1).toString();
+        var actual = G.toString();
 
         assertEquals(expected, actual);
     }
 
     @Test
-    void itReturnsAMinimumSpanningTreeWithTwoVertices() {
+    void itFindsAMinimumSpanningTreeWithTwoVertices() {
         var v1 = new Vertex();
         var v2 = new Vertex();
 
@@ -42,14 +42,16 @@ class PrimTest {
         G.add(v1);
         G.add(v2);
 
+        prim.minSpanTree(G, v1);
+
         var expected = "[(0: null), (10: (0: null))]";
-        var actual = prim.minSpanTree(G, v1).toString();
+        var actual = G.toString();
 
         assertEquals(expected, actual);
     }
 
     @Test
-    void itReturnsAMinimumSpanningTreeWithManyVertices() {
+    void itFindsAMinimumSpanningTreeWithManyVertices() {
         var v1 = new Vertex();
         var v2 = new Vertex();
         var v3 = new Vertex();
@@ -90,22 +92,24 @@ class PrimTest {
         G.add(v8);
         G.add(v9);
 
+        prim.minSpanTree(G, v1);
+
         //@formatter:off
         var expected =
                 "[" +
                     "(0: null), " +
                     "(4: (0: null)), " +
                     "(8: (4: (0: null))), " +
+                    "(7: (8: (4: (0: null)))), " +
+                    "(9: (7: (8: (4: (0: null))))), " +
                     "(4: (8: (4: (0: null)))), " +
                     "(2: (4: (8: (4: (0: null))))), " +
                     "(1: (2: (4: (8: (4: (0: null)))))), " +
-                    "(2: (8: (4: (0: null)))), " +
-                    "(7: (8: (4: (0: null)))), " +
-                    "(9: (7: (8: (4: (0: null)))))" +
+                    "(2: (8: (4: (0: null))))" +
                 "]";
         //@formatter:on
 
-        var actual = prim.minSpanTree(G, v1).toString();
+        var actual = G.toString();
 
         assertEquals(expected, actual);
     }
