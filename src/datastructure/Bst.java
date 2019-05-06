@@ -33,18 +33,18 @@ class Bst extends BinTree {
         return prev;
     }
 
-    private boolean addChild(Node p, Node n) {
-        if (p == null) {
-            root = n;
+    private boolean addChild(Node P, Node N) {
+        if (P == null) {
+            root = N;
         } else {
-            if (n.val < p.val) {
-                p.l = n;
-            } else if (n.val > p.val) {
-                p.r = n;
+            if (N.val < P.val) {
+                P.l = N;
+            } else if (N.val > P.val) {
+                P.r = N;
             } else {
                 return false;
             }
-            n.p = p;
+            N.p = P;
         }
         return true;
     }
@@ -55,13 +55,13 @@ class Bst extends BinTree {
         return isBst(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private boolean isBst(Node n, int min, int max) {
-        if (n == null) {
+    private boolean isBst(Node N, int min, int max) {
+        if (N == null) {
             return true;
-        } else if (n.val <= min || n.val >= max) {
+        } else if (N.val <= min || N.val >= max) {
             return false;
         } else {
-            return isBst(n.l, min, n.val) && isBst(n.r, n.val, max);
+            return isBst(N.l, min, N.val) && isBst(N.r, N.val, max);
         }
     }
 

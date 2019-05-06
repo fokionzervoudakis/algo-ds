@@ -40,10 +40,10 @@ class BinTree {
      <li>space_worst=O(1)
      </ul>
      */
-    int depth(Node n) {
+    int depth(Node N) {
         int d = 0;
-        while (n != root) {
-            n = n.p;
+        while (N != root) {
+            N = N.p;
             d++;
         }
         return d;
@@ -79,80 +79,80 @@ class BinTree {
     }
     //</editor-fold>
 
-    int height(Node n) {
+    int height(Node N) {
         // height = O(log n) + 1
-        if (n == null) {
+        if (N == null) {
             return -1;
         }
-        return 1 + Math.max(height(n.l), height(n.r));
+        return 1 + Math.max(height(N.l), height(N.r));
     }
 
-    int size(Node n) {
-        if (n == null) {
+    int size(Node N) {
+        if (N == null) {
             return 0;
         }
-        return 1 + size(n.l) + size(n.r);
+        return 1 + size(N.l) + size(N.r);
     }
 
-    List<Node> preOrder(Node n, List<Node> L) {
-        if (n != null) {
-            L.add(n);
-            preOrder(n.l, L);
-            preOrder(n.r, L);
+    List<Node> preOrder(Node N, List<Node> L) {
+        if (N != null) {
+            L.add(N);
+            preOrder(N.l, L);
+            preOrder(N.r, L);
         }
         return L;
     }
 
-    List<Node> inorder(Node n, List<Node> L) {
-        if (n != null) {
-            inorder(n.l, L);
-            L.add(n);
-            inorder(n.r, L);
+    List<Node> inorder(Node N, List<Node> L) {
+        if (N != null) {
+            inorder(N.l, L);
+            L.add(N);
+            inorder(N.r, L);
         }
         return L;
     }
 
-    List<Node> postOrder(Node n, List<Node> L) {
-        if (n != null) {
-            postOrder(n.l, L);
-            postOrder(n.r, L);
-            L.add(n);
+    List<Node> postOrder(Node N, List<Node> L) {
+        if (N != null) {
+            postOrder(N.l, L);
+            postOrder(N.r, L);
+            L.add(N);
         }
         return L;
     }
 
-    List<Node> itPreOrder(Node n1) {
+    List<Node> itPreOrder(Node N1) {
         List<Node> L = new ArrayList<>();
-        if (n1 != null) {
+        if (N1 != null) {
             Stack<Node> S = new Stack<>();
-            S.push(n1);
+            S.push(N1);
             while (!S.isEmpty()) {
-                Node n2 = S.pop();
-                L.add(n2);
-                if (n2.r != null) {
-                    S.push(n2.r);
+                Node N2 = S.pop();
+                L.add(N2);
+                if (N2.r != null) {
+                    S.push(N2.r);
                 }
-                if (n2.l != null) {
-                    S.push(n2.l);
+                if (N2.l != null) {
+                    S.push(N2.l);
                 }
             }
         }
         return L;
     }
 
-    Node invert(Node n) {
-        if (n == null) {
+    Node invert(Node N) {
+        if (N == null) {
             return null;
         }
-        Node l = invert(n.l);
-        Node r = invert(n.r);
-        n.r = l;
-        n.l = r;
-        return n;
+        Node l = invert(N.l);
+        Node r = invert(N.r);
+        N.r = l;
+        N.l = r;
+        return N;
     }
 
-    Node lca(Node n1, Node n2) {
-        Stack<Node> S1 = getPath(root, n1), S2 = getPath(root, n2);
+    Node lca(Node N1, Node N2) {
+        Stack<Node> S1 = getPath(root, N1), S2 = getPath(root, N2);
         Node lca = null, tmp;
         while (!S1.isEmpty() && !S2.isEmpty()) {
             if ((tmp = S1.pop()).val == S2.pop().val) {
@@ -164,15 +164,15 @@ class BinTree {
         return lca;
     }
 
-    private Stack<Node> getPath(Node n1, Node n2) {
+    private Stack<Node> getPath(Node N1, Node N2) {
         Stack<Node> S = new Stack<>();
-        if (n1 != null) {
-            if (n1.val == n2.val) {
-                S.push(n1);
-            } else if (!(S = getPath(n1.l, n2)).isEmpty()) {
-                S.push(n1);
-            } else if (!(S = getPath(n1.r, n2)).isEmpty()) {
-                S.push(n1);
+        if (N1 != null) {
+            if (N1.val == N2.val) {
+                S.push(N1);
+            } else if (!(S = getPath(N1.l, N2)).isEmpty()) {
+                S.push(N1);
+            } else if (!(S = getPath(N1.r, N2)).isEmpty()) {
+                S.push(N1);
             }
         }
         return S;
