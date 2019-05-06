@@ -34,9 +34,9 @@ class Lru<K, V> {
         if (M.containsKey(k)) {
             remove(M.get(k));
         }
-        Node<K, V> n = new Node<>(k, v);
-        M.put(k, n);
-        add(n);
+        Node<K, V> N = new Node<>(k, v);
+        M.put(k, N);
+        add(N);
         if (M.size() > len) {
             remove(M.remove(tail.prev.k));
         }
@@ -44,25 +44,25 @@ class Lru<K, V> {
 
     V get(K k) {
         if (M.containsKey(k)) {
-            Node<K, V> n = M.get(k);
-            remove(n);
-            add(n);
-            return n.v;
+            Node<K, V> N = M.get(k);
+            remove(N);
+            add(N);
+            return N.v;
         } else {
             return null;
         }
     }
 
-    private void add(Node<K, V> n) {
+    private void add(Node<K, V> N) {
         Node<K, V> next = hed.next;
-        next.prev = n;
-        hed.next = n;
-        n.prev = hed;
-        n.next = next;
+        next.prev = N;
+        hed.next = N;
+        N.prev = hed;
+        N.next = next;
     }
 
-    private void remove(Node<K, V> n) {
-        Node<K, V> prev = n.prev, next = n.next;
+    private void remove(Node<K, V> N) {
+        Node<K, V> prev = N.prev, next = N.next;
         next.prev = prev;
         prev.next = next;
     }
@@ -75,7 +75,6 @@ class Lru<K, V> {
     class Node<K, V> {
         K k;
         V v;
-
         Node<K, V> prev, next;
 
         Node(K k, V v) {
