@@ -31,13 +31,11 @@ class BellmanF {
                 }
             }
         }
-        for (int i = 0; i < G.size(); i++) {
-            for (Vertex u : G) {
-                for (Vertex v : u.adj()) {
-                    int d = u.d + u.weight(v);
-                    if (v.d > d) {
-                        return true;
-                    }
+        for (Vertex u : G) {
+            for (Vertex v : u.adj()) {
+                int d = u.d + u.weight(v);
+                if (v.d > d) {
+                    return true;
                 }
             }
         }
