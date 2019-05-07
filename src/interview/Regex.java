@@ -19,18 +19,11 @@ class Regex {
         if (p.isEmpty()) {
             return str.isEmpty();
         }
-
         char c = p.charAt(0);
-
-        // The first character will not be a wildcard.
         boolean b = !str.isEmpty() && (c == '.' || c == str.charAt(0));
-
-        // If the second character is a wildcard...
         if (p.length() >= 2 && p.charAt(1) == '*') {
-            // then the regex consumes either zero characters or one character,
             return match(str, p.substring(2)) || (b && match(str.substring(1), p));
         } else {
-            // else the regex consumes one character.
             return b && match(str.substring(1), p.substring(1));
         }
     }
