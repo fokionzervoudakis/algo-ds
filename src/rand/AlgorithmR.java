@@ -7,8 +7,6 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 class AlgorithmR {
-    Random R = new Random();
-
     /**
      Uses Algorithm R to uniformly select a random element from {@code A}.
      <p>
@@ -23,16 +21,17 @@ class AlgorithmR {
      */
     @PseudoRandom
     int pick(int[] A) {
+        Random R = new Random();
         int n = 0;
         for (int i = 0; i < A.length; i++) {
-            if (i == 0 || rand(1, i + 1) == 1) {
+            if (i == 0 || rand(R, 1, i + 1) == 1) {
                 n = A[i];
             }
         }
         return n;
     }
 
-    private int rand(int min, int max) {
+    private int rand(Random R, int min, int max) {
         return R.nextInt((max - min) + 1) + min;
     }
 

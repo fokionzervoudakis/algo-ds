@@ -8,8 +8,6 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 class Knuth {
-    Random R = new Random();
-
     /**
      Uses the Fisher-Yates (in-place) shuffle to generate a pseudo-random
      permutation of {@code A}. The number of possible permutations is the
@@ -24,8 +22,9 @@ class Knuth {
     @InPlace
     @PseudoRandom
     void shuffle(int[] A) {
+        Random R = new Random();
         for (int i = 0; i < A.length - 1; i++) {
-            swap(A, i, rand(i, A.length - 1));
+            swap(A, i, rand(R, i, A.length - 1));
         }
     }
 
@@ -35,7 +34,7 @@ class Knuth {
         A[j] = n;
     }
 
-    private int rand(int min, int max) {
+    private int rand(Random R, int min, int max) {
         return R.nextInt((max - min) + 1) + min;
     }
 
