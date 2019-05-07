@@ -17,7 +17,6 @@ class BellmanF {
      @param start a source vertex in {@code G}
      @return true if {@code G} contains negative edge weights, else false
      */
-    // TODO test with cycles
     boolean shortestPaths(List<Vertex> G, Vertex start) {
         start.d = 0;
         for (int i = 0; i < G.size(); i++) {
