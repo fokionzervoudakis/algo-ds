@@ -34,9 +34,7 @@ class Stack<T> {
 
     private void resize() {
         T[] B = (T[]) new Object[Math.max(top * 2, 1)];
-        for (int i = 0; i < top; i++) {
-            B[i] = A[i];
-        }
+        System.arraycopy(A, 0, B, 0, top);
         A = B;
     }
 

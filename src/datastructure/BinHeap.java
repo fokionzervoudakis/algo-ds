@@ -127,9 +127,7 @@ class BinHeap<T> {
 
     private void resize() {
         T[] B = (T[]) new Object[Math.max(len * 2, 1)];
-        for (int i = 0; i < len; i++) {
-            B[i] = A[i];
-        }
+        System.arraycopy(A, 0, B, 0, len);
         A = B;
     }
 
