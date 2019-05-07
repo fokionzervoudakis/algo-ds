@@ -27,14 +27,13 @@ class BinSearch {
             // Signed integer addition can cause an overflow if the array size is greater than half the maximum integer value.
             // But the unsigned representation of the sum is correct regardless of overflow.
             // The logical right shift can therefore be used to divide the unsigned number and derive the correct mean.
-            int mid = (l + r) >>> 1;
-            int midVal = A[mid];
-            if (midVal < n) {
-                l = mid + 1;
-            } else if (midVal > n) {
-                r = mid - 1;
+            int m = (l + r) >>> 1;
+            if (A[m] < n) {
+                l = m + 1;
+            } else if (A[m] > n) {
+                r = m - 1;
             } else {
-                return mid;
+                return m;
             }
         }
         return -l;
@@ -68,14 +67,13 @@ class BinSearch {
         if (l > r) {
             return -l;
         }
-        int mid = (l + r) >>> 1;
-        int midVal = A[mid];
-        if (midVal < n) {
-            return rec(A, n, mid + 1, r);
-        } else if (midVal > n) {
-            return rec(A, n, l, mid - 1);
+        int m = (l + r) >>> 1;
+        if (A[m] < n) {
+            return rec(A, n, m + 1, r);
+        } else if (A[m] > n) {
+            return rec(A, n, l, m - 1);
         } else {
-            return mid;
+            return m;
         }
     }
 }

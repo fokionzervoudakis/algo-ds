@@ -27,8 +27,8 @@ class QuickSelect {
     Integer it(int[] A, int k) {
         int l = 0, r = A.length - 1;
         while (r >= l) {
-            int mid = (l + r) >>> 1;
-            swap(A, mid, r);
+            int m = (l + r) >>> 1;
+            swap(A, m, r);
             int i = l;
             for (int j = l; j < r; j++) {
                 if (A[j] < A[r]) {

@@ -27,9 +27,9 @@ class MergeSort {
         if (n < 2) {
             return A;
         }
-        int mid = n / 2;
-        int[] B = Arrays.copyOfRange(A, 0, mid);
-        int[] C = Arrays.copyOfRange(A, mid, n);
+        int m = n / 2;
+        int[] B = Arrays.copyOfRange(A, 0, m);
+        int[] C = Arrays.copyOfRange(A, m, n);
         return merge(sort(B), sort(C));
     }
 
