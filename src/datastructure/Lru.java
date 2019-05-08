@@ -26,8 +26,8 @@ class Lru<K, V> {
 
     Lru(int len) {
         this.len = len;
-        this.hed.next = tail;
-        this.tail.prev = hed;
+        hed.next = tail;
+        tail.prev = hed;
     }
 
     void put(K k, V v) {
