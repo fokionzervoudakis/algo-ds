@@ -19,7 +19,7 @@ class Knapsack {
     }
 
     private int helper(int[] w, int[] v, int i, int size) {
-        if (i == v.length) {
+        if (i == w.length) {
             return 0;
         } else {
             int a = helper(w, v, i + 1, size);
