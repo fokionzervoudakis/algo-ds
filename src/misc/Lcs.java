@@ -2,7 +2,7 @@ package misc;
 
 class Lcs {
     /**
-     Calculates the length of the longest common sub-sequence (i.e., the longest
+     Calculates the length of the longest common sub-sequence (i.e. the longest
      sequence of characters common to all sequences) in two arrays.
      <p>
      For example, the longest common sub-sequence of "1234" and "1224533324" is
