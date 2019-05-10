@@ -26,7 +26,7 @@ class LcsTest {
     }
 
     @Test
-    void itReturnsZeroWhenAnLscDoesNotExist() {
+    void itReturnsZeroWhenAnLcsDoesNotExist() {
         assertEquals(0, lcs.len(new char[] { 'a' }, new char[] { 'b' }));
     }
 
