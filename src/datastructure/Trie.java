@@ -21,26 +21,26 @@ class Trie {
     Node root = new Node();
 
     void insert(String str) {
-        Node n = root;
+        Node N = root;
         for (char c : str.toCharArray()) {
-            if (!n.contains(c)) {
-                n.put(c, new Node());
+            if (!N.contains(c)) {
+                N.put(c, new Node());
             }
-            n = n.get(c);
+            N = N.get(c);
         }
-        n.val = str;
+        N.val = str;
     }
 
     Node lookup(String str) {
-        Node n = root;
+        Node N = root;
         for (char c : str.toCharArray()) {
-            if (n.contains(c)) {
-                n = n.get(c);
+            if (N.contains(c)) {
+                N = N.get(c);
             } else {
                 return null;
             }
         }
-        return n;
+        return N;
     }
 
     @Override
@@ -57,8 +57,8 @@ class Trie {
             return children.containsKey(c);
         }
 
-        void put(char c, Node n) {
-            children.put(c, n);
+        void put(char c, Node N) {
+            children.put(c, N);
         }
 
         Node get(char c) {
