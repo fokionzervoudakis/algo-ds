@@ -35,13 +35,13 @@ class Diff {
         StringBuilder sb = new StringBuilder();
 
         String printDiff(int[][] M, char[] A, char[] B, int i, int j) {
-            if ((i >= 0) && (j >= 0) && (A[i] == B[j])) {
+            if (i >= 0 && j >= 0 && A[i] == B[j]) {
                 printDiff(M, A, B, i - 1, j - 1);
                 sb.append("  ").append(A[i]);
-            } else if ((j > 0) && ((i == 0) || (M[i][j - 1] >= M[i - 1][j]))) {
+            } else if (j > 0 && (i == 0 || M[i][j - 1] >= M[i - 1][j])) {
                 printDiff(M, A, B, i, j - 1);
                 sb.append(" +").append(B[j]);
-            } else if ((i > 0) && ((j == 0) || (M[i][j - 1] < M[i - 1][j]))) {
+            } else if (i > 0 && (j == 0 || M[i][j - 1] < M[i - 1][j])) {
                 printDiff(M, A, B, i - 1, j);
                 sb.append(" -").append(A[i]);
             }
