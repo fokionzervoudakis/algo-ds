@@ -2,12 +2,18 @@ package search;
 
 import annotation.Bitwise;
 
+/**
+ {@link java.util.Arrays#binarySearch(int[], int)}
+ */
 class BinSearch {
     /**
      Searches the specified array for the specified element using the binary
      search algorithm.
-     <p>
-     Asymptotic analysis:
+     <p>Signed integer addition can cause an overflow if the array size is
+     greater than half the maximum integer value. But the unsigned representation
+     of the sum is correct regardless of overflow. The logical right shift is
+     therefore used to divide the unsigned number and derive the correct mean.
+     <p>Asymptotic analysis:
      <ul>
      <li>time_best=O(1)
      <li>time_avg=O(log n)
@@ -24,9 +30,6 @@ class BinSearch {
     int it(int[] A, int n) {
         int l = 0, r = A.length - 1;
         while (r >= l) {
-            // Signed integer addition can cause an overflow if the array size is greater than half the maximum integer value.
-            // But the unsigned representation of the sum is correct regardless of overflow.
-            // The logical right shift can therefore be used to divide the unsigned number and derive the correct mean.
             int m = (l + r) >>> 1;
             if (A[m] < n) {
                 l = m + 1;
@@ -42,8 +45,7 @@ class BinSearch {
     /**
      Searches the specified array for the specified element using the binary
      search algorithm.
-     <p>
-     Asymptotic analysis:
+     <p>Asymptotic analysis:
      <ul>
      <li>time_best=O(1)
      <li>time_avg=O(log n)
