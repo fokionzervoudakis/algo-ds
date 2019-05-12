@@ -1,6 +1,9 @@
 package experiment;
 
+import annotation.Bit;
+
 class Bitwise {
+    @Bit
     public static void main(String[] args) {
         // Bitwise AND:
 

@@ -1,6 +1,6 @@
 package search;
 
-import annotation.Bitwise;
+import annotation.Bit;
 
 /**
  {@link java.util.Arrays#binarySearch(int[], int)}
@@ -26,7 +26,7 @@ class BinSearch {
      @return the index of {@code n} in {@code A}, if {@code n} is in {@code A},
      else <code>(-(<i>insertion point</i>) - 1)</code>
      */
-    @Bitwise
+    @Bit
     int it(int[] A, int n) {
         int l = 0, r = A.length - 1;
         while (r >= l) {
@@ -64,7 +64,7 @@ class BinSearch {
         return rec(A, n, 0, A.length - 1);
     }
 
-    @Bitwise
+    @Bit
     private int rec(int[] A, int n, int l, int r) {
         if (l > r) {
             return -l;

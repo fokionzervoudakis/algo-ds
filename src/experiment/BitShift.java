@@ -1,6 +1,9 @@
 package experiment;
 
+import annotation.Bit;
+
 class BitShift {
+    @Bit
     public static void main(String[] args) {
         // Left shift:
 

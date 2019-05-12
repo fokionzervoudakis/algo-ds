@@ -1,6 +1,6 @@
 package search;
 
-import annotation.Bitwise;
+import annotation.Bit;
 import annotation.InPlace;
 import annotation.pattern.DivideAndConquer;
 
@@ -21,7 +21,7 @@ class QuickSelect {
      @return the {@code k}th smallest element in {@code A}, if {@code A} contains
      a {@code k}th smallest element, else null
      */
-    @Bitwise
+    @Bit
     @InPlace
     @DivideAndConquer
     Integer it(int[] A, int k) {
