@@ -1,5 +1,8 @@
 package misc;
 
+/**
+ {@link Lis}
+ */
 class Diff {
     /**
      Uses the solution to the longest common sub-sequence problem (i.e. the
