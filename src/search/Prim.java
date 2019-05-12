@@ -21,6 +21,7 @@ class Prim {
      */
     void minSpanTree(List<Vertex> G, Vertex start) {
         Queue<Vertex> Q = new PriorityQueue<>(Comparator.comparingInt(o -> o.d));
+        // O(V log V)
         Q.addAll(G);
 
         start.d = 0;
@@ -28,7 +29,6 @@ class Prim {
         Set<Vertex> S = new HashSet<>();
 
         while (!Q.isEmpty()) {
-            // O(V log V)
             Vertex u = Q.remove();
             S.add(u);
             for (Vertex v : u.adj()) {

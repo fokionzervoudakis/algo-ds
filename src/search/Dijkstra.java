@@ -20,12 +20,12 @@ class Dijkstra {
      */
     void shortestPaths(List<Vertex> G, Vertex start) {
         Queue<Vertex> Q = new PriorityQueue<>(Comparator.comparingInt(o -> o.d));
+        // O(V log V)
         Q.addAll(G);
 
         start.d = 0;
 
         while (!Q.isEmpty()) {
-            // O(V log V)
             Vertex u = Q.remove();
             for (Vertex v : u.adj()) {
                 int d = u.d + u.weight(v);
