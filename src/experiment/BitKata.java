@@ -2,6 +2,7 @@ package experiment;
 
 import annotation.Bit;
 
+@Bit
 class BitKata {
     /**
      Uses left shifts to check if {@code n}'s {@code k}th bit is set.
@@ -10,7 +11,6 @@ class BitKata {
      @param k a bit position
      @return true if {@code n}'s {@code k}th bit is set, else false
      */
-    @Bit
     static boolean isKthBitSetL(int n, int k) {
         var x = 1 << (k - 1);
         return (n & x) != 0;
@@ -23,7 +23,6 @@ class BitKata {
      @param k a bit position
      @return true if {@code n}'s {@code k}th bit is set, else false
      */
-    @Bit
     static boolean isKthBitSetR(int n, int k) {
         var x = n >> (k - 1);
         return (x & 1) != 0;
@@ -36,7 +35,6 @@ class BitKata {
      @param n an integer representation of a 128-bit (signed) byte
      @return true if {@code n}'s high-order bit is set, else false
      */
-    @Bit
     static boolean isHighestBitSetL(int n) {
         return isKthBitSetL(n, 8);
     }
@@ -47,7 +45,6 @@ class BitKata {
      @param n an integer
      @return the number of bits in {@code n}
      */
-    @Bit
     static int countBits(int n) {
         int count = 0;
         while (n != 0) {
@@ -64,7 +61,6 @@ class BitKata {
      @param n an unsigned integer
      @return the number of set bits (i.e. the Hamming weight) in {@code n}
      */
-    @Bit
     static int countSetBits(int n) {
         int count = 0;
         for (int i = 0; i < 32; i++) {
@@ -86,7 +82,6 @@ class BitKata {
      @return the number of corresponding bits that are different (i.e. the
      Hamming distance) between {@code a} and {@code b}
      */
-    @Bit
     static int countDiffBits(int a, int b) {
         int c = a ^ b;
         int count = 0;
@@ -99,7 +94,6 @@ class BitKata {
         return count;
     }
 
-    @Bit
     static int isBitPalindrome(int n) {
         return -1; // TODO
     }
