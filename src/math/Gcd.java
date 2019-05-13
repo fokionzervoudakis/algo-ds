@@ -1,5 +1,8 @@
-package misc;
+package math;
 
+import annotation.Math;
+
+@Math
 class Gcd {
     /**
      Uses an iterative implementation of Euclid's algorithm to calculate the
