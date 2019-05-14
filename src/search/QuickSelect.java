@@ -4,7 +4,10 @@ import annotation.Bit;
 import annotation.InPlace;
 import annotation.pattern.DivideAndConquer;
 
-class QuickSelect {
+/**
+ {@link rand.Knuth}
+ */
+public class QuickSelect {
     /**
      Asymptotic analysis:
      <ul>

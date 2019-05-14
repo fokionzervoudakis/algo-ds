@@ -7,7 +7,10 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-class Knuth {
+/**
+ {@link search.QuickSelect}
+ */
+public class Knuth {
     /**
      Uses the Fisher-Yates (in-place) shuffle to generate a pseudo-random
      permutation of {@code A}. The number of possible permutations is the
