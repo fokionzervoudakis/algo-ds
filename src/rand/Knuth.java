@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 
 /**
  {@link search.QuickSelect}
+ {@link sort.QuickSort}
  */
 public class Knuth {
     /**
@@ -24,29 +25,28 @@ public class Knuth {
      */
     @InPlace
     @PseudoRandom
-    void shuffle(int[] A) {
+    public static void shuffle(int[] A) {
         Random R = new Random();
         for (int i = 0; i < A.length - 1; i++) {
             swap(A, i, rand(R, i, A.length - 1));
         }
     }
 
-    private void swap(int[] A, int i, int j) {
+    private static void swap(int[] A, int i, int j) {
         int n = A[i];
         A[i] = A[j];
         A[j] = n;
     }
 
-    private int rand(Random R, int min, int max) {
+    private static int rand(Random R, int min, int max) {
         return R.nextInt((max - min) + 1) + min;
     }
 
     public static void main(String[] args) {
         var A = IntStream.range(0, 10).toArray();
-        var K = new Knuth();
         for (var i = 0; i < 10; i++) {
             var B = A.clone();
-            K.shuffle(B);
+            Knuth.shuffle(B);
             System.out.println(Arrays.toString(B));
         }
     }

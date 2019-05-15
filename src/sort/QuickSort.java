@@ -3,8 +3,9 @@ package sort;
 import annotation.InPlace;
 import annotation.Unstable;
 import annotation.pattern.DivideAndConquer;
+import rand.Knuth;
 
-class QuickSort {
+public class QuickSort {
     /**
      Asymptotic analysis:
      <ul>
@@ -13,8 +14,10 @@ class QuickSort {
      <li>time_worst=O(n^2)
      <li>space_worst=O(log n)
      </ul>
-     Based on Lomuto's partition scheme, which uses {@code x=A[r]} as pivot
+     <p>Based on Lomuto's partition scheme, which uses {@code x=A[r]} as pivot
      element.
+     <p>Use the Knuth shuffle to add randomness and optimize performance (CLRS).
+     <p>https://algs4.cs.princeton.edu/23quicksort/
 
      @param A the array to be sorted
      */
@@ -22,6 +25,7 @@ class QuickSort {
     @Unstable
     @DivideAndConquer
     void sort(int[] A) {
+        Knuth.shuffle(A);
         sort(A, 0, A.length - 1);
     }
 

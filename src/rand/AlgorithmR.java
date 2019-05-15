@@ -20,7 +20,7 @@ class AlgorithmR {
      @return a random element selected uniformly from {@code A}
      */
     @PseudoRandom
-    int pick(int[] A) {
+    static int pick(int[] A) {
         Random R = new Random();
         int n = 0;
         for (int i = 0; i < A.length; i++) {
@@ -31,17 +31,16 @@ class AlgorithmR {
         return n;
     }
 
-    private int rand(Random R, int min, int max) {
+    private static int rand(Random R, int min, int max) {
         return R.nextInt((max - min) + 1) + min;
     }
 
     public static void main(String[] args) {
         var max = 10000;
         var A = IntStream.range(0, 10).toArray();
-        var R = new AlgorithmR();
         var M = new HashMap<Integer, Double>();
         for (var i = 0; i < max; i++) {
-            var n = R.pick(A);
+            var n = AlgorithmR.pick(A);
             M.put(n, M.containsKey(n) ? M.get(n) + 1 : 1);
         }
         for (var E : M.entrySet()) {

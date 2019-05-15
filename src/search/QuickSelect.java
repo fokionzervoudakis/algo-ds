@@ -3,10 +3,8 @@ package search;
 import annotation.Bit;
 import annotation.InPlace;
 import annotation.pattern.DivideAndConquer;
+import rand.Knuth;
 
-/**
- {@link rand.Knuth}
- */
 public class QuickSelect {
     /**
      Asymptotic analysis:
@@ -16,8 +14,10 @@ public class QuickSelect {
      <li>time_worst=O(n^2) with sorted data and the first element as pivot
      <li>space_worst=O(1)
      </ul>
-     Based on Lomuto's partition scheme, which uses {@code x=A[r]} as pivot
+     <p>Based on Lomuto's partition scheme, which uses {@code x=A[r]} as pivot
      element.
+     <p>Use the Knuth shuffle to add randomness and optimize performance (CLRS).
+     <p>https://algs4.cs.princeton.edu/23quicksort/
 
      @param A the array to be searched
      @param k the {@code k}th smallest element to be searched for
@@ -28,6 +28,7 @@ public class QuickSelect {
     @InPlace
     @DivideAndConquer
     Integer it(int[] A, int k) {
+        Knuth.shuffle(A);
         int l = 0, r = A.length - 1;
         while (r >= l) {
             int m = (l + r) >>> 1;
