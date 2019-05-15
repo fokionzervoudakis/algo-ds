@@ -14,7 +14,18 @@ class SpiralTest {
     }
 
     @Test
-    void itTraversesASquareMatrixClockwise() {
+    void itTraversesASmallSquareMatrixClockwise() {
+        var M = new int[][] {
+                { 1, 2 },
+                { 3, 4 }
+        };
+        var expected = "[1, 2, 4, 3]";
+        var actual = spiral.clockwise(M).toString();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void itTraversesALargeSquareMatrixClockwise() {
         var M = new int[][] {
                 { 1, 2, 3, 4 },
                 { 5, 6, 7, 8 },
@@ -27,12 +38,24 @@ class SpiralTest {
     }
 
     @Test
-    void itTraversesARectangularMatrixClockwise() {
+    void itTraversesASmallRectangularMatrixClockwise() {
+        var M = new int[][] {
+                { 1, 2, 3 },
+                { 4, 5, 6 }
+        };
+        var expected = "[1, 2, 3, 6, 5, 4]";
+        var actual = spiral.clockwise(M).toString();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void itTraversesALargeRectangularMatrixClockwise() {
         var M = new int[][] {
                 { 1, 2, 3, 4 },
-                { 5, 6, 7, 8 }
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 }
         };
-        var expected = "[1, 2, 3, 4, 8, 7, 6, 5]";
+        var expected = "[1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]";
         var actual = spiral.clockwise(M).toString();
         assertEquals(expected, actual);
     }

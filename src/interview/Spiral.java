@@ -6,27 +6,33 @@ import java.util.List;
 class Spiral {
     List<Integer> clockwise(int[][] M) {
         List<Integer> L = new ArrayList<>();
-
         if (M.length == 0) {
             return L;
         }
-
-        int t = 0, b = M.length - 1, l = 0, r = M[0].length - 1;
-
-        while (true) {
-            for (int i = l; i <= r; i++) L.add(M[t][i]);
-            if (++t > b) break;
-
-            for (int i = t; i <= b; i++) L.add(M[i][r]);
-            if (l > --r) break;
-
-            for (int i = r; i >= l; i--) L.add(M[b][i]);
-            if (t > --b) break;
-
-            for (int i = b; i >= t; i--) L.add(M[i][l]);
-            if (++l > r) break;
+        int m = M.length, n = M[0].length;
+        int row = 0, col = 0;
+        while (row < m && col < n) {
+            for (int i = col; i < n; i++) {
+                L.add(M[row][i]);
+            }
+            row++;
+            for (int i = row; i < m; i++) {
+                L.add(M[i][n - 1]);
+            }
+            n--;
+            if (row < m) {
+                for (int i = n - 1; i >= col; i--) {
+                    L.add(M[m - 1][i]);
+                }
+                m--;
+            }
+            if (col < n) {
+                for (int i = m - 1; i >= row; i--) {
+                    L.add(M[i][col]);
+                }
+                col++;
+            }
         }
-
         return L;
     }
 }
