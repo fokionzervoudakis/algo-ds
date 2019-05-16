@@ -8,8 +8,7 @@ import java.util.Map;
 
 /**
  The adjacency list representation is preferred for sparse graphs.
- <p>
- Asymptotic analysis:
+ <p>Asymptotic analysis:
  <ul>
  <li>addEdge=O(1)
  <li>removeEdge=O(E)

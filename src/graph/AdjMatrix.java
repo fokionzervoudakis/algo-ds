@@ -9,8 +9,7 @@ import java.util.List;
  The adjacency matrix representation is preferred for dense graphs or fast
  lookups. It is also used because matrix algebra can efficiently compute
  properties of the underlying graph.
- <p>
- Asymptotic analysis:
+ <p>Asymptotic analysis:
  <ul>
  <li>addEdge=O(1)
  <li>removeEdge=O(1)

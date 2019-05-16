@@ -8,9 +8,9 @@ import java.util.stream.IntStream;
 
 class AlgorithmR {
     /**
-     Uses Algorithm R to uniformly select a random element from {@code A}.
-     <p>
-     Asymptotic analysis:
+     Uses Algorithm R to uniformly select a random element from {@code A} (a.k.a
+     reservoir sampling).
+     <p>Asymptotic analysis:
      <ul>
      <li>time_worst=O(n)
      <li>space_worst=O(1)
