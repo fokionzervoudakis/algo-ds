@@ -14,8 +14,8 @@ class DpKnapsack {
          Uses recursive (top-down) dynamic programming with memoization to
          calculate solve the knapsack problem.
          <ul>
-         <li>time_worst=O(n)
-         <li>space_worst=O(n)
+         <li>time_worst=O(mn)
+         <li>space_worst=O(mn)
          </ul>
 
          @param w the item weights
@@ -36,7 +36,7 @@ class DpKnapsack {
                 return M.get(key);
             } else {
                 int max;
-                if (i == v.length) {
+                if (i == w.length) {
                     max = 0;
                 } else {
                     int a = helper(w, v, i + 1, size);
@@ -54,8 +54,8 @@ class DpKnapsack {
          Uses iterative (bottom-up) dynamic programming with tabulation to solve
          the knapsack problem.
          <ul>
-         <li>time_worst=O(n)
-         <li>space_worst=O(n)
+         <li>time_worst=O(mn)
+         <li>space_worst=O(mn)
          </ul>
 
          @param w the item weights
@@ -67,20 +67,16 @@ class DpKnapsack {
          */
         @Tabulation
         int max(int[] w, int[] v, int size) {
-            int m = v.length;
-            int[][] memo = new int[m + 1][size + 1];
-            for (int i = m - 1; i >= 0; i--) {
-                for (int j = 0; j < size + 1; j++) {
-                    if (i == m) {
-                        memo[i][j] = 0;
-                    } else {
-                        int a = memo[i + 1][j];
-                        int b = (j >= w[i]) ? memo[i + 1][j - w[i]] + v[i] : 0;
-                        memo[i][j] = Math.max(a, b);
-                    }
+            int m = w.length;
+            int[][] M = new int[m + 1][size + 1];
+            for (int i = 1; i <= m; i++) {
+                for (int j = 1; j <= size; j++) {
+                    int a = M[i - 1][j];
+                    int b = (j >= w[i - 1]) ? M[i - 1][j - w[i - 1]] + v[i - 1] : 0;
+                    M[i][j] = Math.max(a, b);
                 }
             }
-            return memo[0][size];
+            return M[m][size];
         }
     }
 }
