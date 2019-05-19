@@ -2,21 +2,21 @@ package sort.external;
 
 import java.util.Arrays;
 
-class MergeSort<T extends Comparable<T>> {
-    T[] sort(T[] A) {
-        int n = A.length;
+class MergeSort {
+    static String[] sort(String[] A) {
+        var n = A.length;
         if (n < 2) {
             return A;
         }
-        int m = n / 2;
-        T[] B = Arrays.copyOfRange(A, 0, m);
-        T[] C = Arrays.copyOfRange(A, m, n);
+        var m = n / 2;
+        var B = Arrays.copyOfRange(A, 0, m);
+        var C = Arrays.copyOfRange(A, m, n);
         return merge(sort(B), sort(C));
     }
 
-    private T[] merge(T[] B, T[] C) {
+    private static String[] merge(String[] B, String[] C) {
         int m = B.length, n = C.length;
-        T[] A = (T[]) new Comparable[m + n];
+        var A = new String[m + n];
         int i = 0, j = 0, k = 0;
         while (j < m && k < n) {
             A[i++] = (B[j].compareTo(C[k]) < 0) ? B[j++] : C[k++];

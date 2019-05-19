@@ -19,7 +19,7 @@ class ExternalSort {
                 lines[i] = line;
                 if (++i == SIZE) {
                     var path = outPath + ++j;
-                    write(new MergeSort<String>().sort(lines), path);
+                    write(MergeSort.sort(lines), path);
                     paths.add(path);
                     lines = new String[SIZE];
                     i = 0;
@@ -28,7 +28,7 @@ class ExternalSort {
         }
         if (i > 0) {
             var path = outPath + ++j;
-            write(new MergeSort<String>().sort(lines), path);
+            write(MergeSort.sort(lines), path);
             paths.add(path);
         }
         merge(paths, outPath + ++j);
@@ -43,18 +43,18 @@ class ExternalSort {
     }
 
     /**
-     * Implements disk-backed, single-pass, naive <em>k-way merging</em>.
-     * <p>
-     * Worst-case time complexity: O((k−1)(n−k/2))
-     * <p>
-     *
-     * @param inPaths a list of file paths to sorted input lists
-     * @param outPath a file path to the final sorted file
-     * @throws IOException if an I/O error occurs
-     * @see <a href="https://en.wikipedia.org/wiki/Merge_algorithm#K-way_merging">K-way
-     * merging</a>
-     * @see <a href="https://en.wikipedia.org/wiki/External_sorting#Additional_passes">Additional
-     * passes</a>
+     Implements disk-backed, single-pass, naive <em>k-way merging</em>.
+     <p>
+     Worst-case time complexity: O((k−1)(n−k/2))
+     <p>
+
+     @param inPaths a list of file paths to sorted input lists
+     @param outPath a file path to the final sorted file
+     @throws IOException if an I/O error occurs
+     @see <a href="https://en.wikipedia.org/wiki/Merge_algorithm#K-way_merging">K-way
+     merging</a>
+     @see <a href="https://en.wikipedia.org/wiki/External_sorting#Additional_passes">Additional
+     passes</a>
      */
     private void merge(List<String> inPaths, String outPath) throws IOException {
         // Initialize the input...
