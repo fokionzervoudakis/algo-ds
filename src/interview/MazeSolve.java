@@ -3,20 +3,21 @@ package interview;
 import annotation.Backtracking;
 
 class MazeSolve {
+    static final char GOAL = 'G', OPEN = ' ', PATH = '+', WALL = '#';
+
     @Backtracking
     boolean solve(char[][] M, int i, int j) {
-        char G = 'G', O = ' ', P = '+', W = '#';
         char c = M[i][j];
-        if (c == G) {
+        if (c == GOAL) {
             return true;
-        } else if (c == P || c == W) {
+        } else if (c == PATH || c == WALL) {
             return false;
         } else {
-            M[i][j] = P;
+            M[i][j] = PATH;
             if (solve(M, i - 1, j) || solve(M, i + 1, j) || solve(M, i, j - 1) || solve(M, i, j + 1)) {
                 return true;
             }
-            M[i][j] = O;
+            M[i][j] = OPEN;
             return false;
         }
     }
