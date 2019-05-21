@@ -14,11 +14,11 @@ class RandExtractor {
     /**
      Implements the Von Neumann randomness extractor for producing a uniform
      distribution from nonuniform input.
-     <p>For example, the probability of deriving heads/tails from a coin toss is
-     {@code P(H)=p} and {@code P(T)=1-p=q}.
+     <p>For example, when tossing a coin the probability of deriving heads/tails
+     is {@code P(H)=p} and {@code P(T)=1-p=q} respectively.
      <p>If a biased coin with {@code p=0.6} is tossed twice and cases {@code HH}
      and {@code TT} are discarded, then {@code HT} and {@code TH} will occur with
-     equal probabilities:
+     equal probabilities (assumed independence of successive tosses):
      <ul>
      <li>{@code P(HH)=P(H)xP(H)=0.36}
      <li>{@code P(TT)=P(T)xP(T)=0.16}
