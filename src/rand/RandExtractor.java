@@ -35,10 +35,10 @@ class RandExtractor {
      @return a uniformly distributed pseudo random number
      */
     @PseudoRandom
-    static int tossUnbiased(Coin C) {
+    private static int tossUnbiased(Coin C) {
+        int m;
         while (true) {
-            int m = C.tossBiased(), n = C.tossBiased();
-            if (m != n) {
+            if ((m = C.tossBiased()) != C.tossBiased()) {
                 return m;
             }
         }
