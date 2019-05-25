@@ -19,8 +19,7 @@ class InsertionSort {
     @Stable
     void sort(int[] A) {
         for (int i = 0; i < A.length; i++) {
-            int n = A[i];
-            int j = i;
+            int n = A[i], j = i;
             while (j > 0 && A[j - 1] > n) {
                 A[j] = A[j-- - 1];
             }

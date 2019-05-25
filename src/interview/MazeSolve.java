@@ -1,6 +1,6 @@
 package interview;
 
-import annotation.Backtracking;
+import annotation.pattern.Backtracking;
 
 class MazeSolve {
     static final char GOAL = 'G', OPEN = ' ', PATH = '+', WALL = '#';
