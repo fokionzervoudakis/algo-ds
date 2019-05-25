@@ -5,7 +5,7 @@ import annotation.Bit;
 /**
  {@link java.util.Arrays#binarySearch(int[], int)}
  */
-class BinSearch {
+public class BinSearch {
     /**
      Searches the specified array for the specified element using the binary
      search algorithm.
@@ -26,9 +26,12 @@ class BinSearch {
      @return the index of {@code n} in {@code A}, if {@code n} is in {@code A},
      else <code>(-(<i>insertion point</i>) - 1)</code>
      */
-    @Bit
     int it(int[] A, int n) {
-        int l = 0, r = A.length - 1;
+        return it(A, 0, A.length - 1, n);
+    }
+
+    @Bit
+    public static int it(int[] A, int l, int r, int n) {
         while (r >= l) {
             int m = (l + r) >>> 1;
             if (A[m] < n) {
@@ -39,7 +42,7 @@ class BinSearch {
                 return m;
             }
         }
-        return -l;
+        return -(l + 1);
     }
 
     /**
@@ -61,19 +64,19 @@ class BinSearch {
      else <code>(-(<i>insertion point</i>) - 1)</code>
      */
     int rec(int[] A, int n) {
-        return rec(A, n, 0, A.length - 1);
+        return rec(A, 0, A.length - 1, n);
     }
 
     @Bit
-    private int rec(int[] A, int n, int l, int r) {
+    private int rec(int[] A, int l, int r, int n) {
         if (l > r) {
-            return -l;
+            return -(l + 1);
         }
         int m = (l + r) >>> 1;
         if (A[m] < n) {
-            return rec(A, n, m + 1, r);
+            return rec(A, m + 1, r, n);
         } else if (A[m] > n) {
-            return rec(A, n, l, m - 1);
+            return rec(A, l, m - 1, n);
         } else {
             return m;
         }
