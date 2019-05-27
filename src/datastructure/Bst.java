@@ -52,13 +52,15 @@ class Bst extends BinTree {
     // TODO node removal
 
     boolean isBst() {
-        return isBst(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return isBst(root, null, null);
     }
 
-    private boolean isBst(Node N, int min, int max) {
+    private boolean isBst(Node N, Integer min, Integer max) {
         if (N == null) {
             return true;
-        } else if (N.val <= min || N.val >= max) {
+        } else if (min != null && N.val <= min) {
+            return false;
+        } else if (max != null && N.val >= max) {
             return false;
         } else {
             return isBst(N.l, min, N.val) && isBst(N.r, N.val, max);

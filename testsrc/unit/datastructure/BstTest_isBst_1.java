@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class BstTest_isBst {
+class BstTest_isBst_1 {
     private Bst bst;
 
     @BeforeEach
