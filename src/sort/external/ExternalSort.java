@@ -44,9 +44,7 @@ class ExternalSort {
 
     /**
      Implements disk-backed, single-pass, naive <em>k-way merging</em>.
-     <p>
-     Worst-case time complexity: O((k−1)(n−k/2))
-     <p>
+     <p>Worst-case time complexity: O((k−1)(n−k/2))
 
      @param inPaths a list of file paths to sorted input lists
      @param outPath a file path to the final sorted file
