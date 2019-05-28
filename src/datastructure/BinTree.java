@@ -8,24 +8,25 @@ import java.util.Stack;
  Asymptotic analysis:
  <ul>
 
+ <li>depth_time_avg=O(log n)
+ <li>depth_time_worst=O(n)
+
+ <li>height_time_worst=O(n)
+
+ <li>size_time_worst=O(n)
+
+ <li>preOrder_time_worst=O(n)
+ <li>inorder_time_worst=O(n)
+ <li>postOrder_time_worst=O(n)
+
+ <li>itPreOrder_time_worst=O(n)
+
+ <li>invert_time_worst=O(n)
+
+ <li>lca_time_worst=O(n)
+
  <li>space_avg=O(log n)
- <li>space_worst=O(n)
-
- <li>depth_avg=O(log n)
- <li>depth_worst=O(n)
-
- <li>height_worst=O(n)
-
- <li>size_worst=O(n)
-
- <li>preOrder_worst=O(n)
- <li>inorder_worst=O(n)
- <li>postOrder_worst=O(n)
- <li>itPreOrder_worst=O(n)
-
- <li>invert_worst=O(n)
-
- <li>lca_worst=O(n)
+ <li>space_worst=O(n)s
 
  </ul>
  */
