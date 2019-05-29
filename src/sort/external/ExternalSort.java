@@ -21,7 +21,9 @@ class ExternalSort {
                     var path = outPath + ++j;
                     write(MergeSort.sort(lines), path);
                     paths.add(path);
-                    lines = new String[SIZE];
+                    for (var k = 0; k < SIZE; k++) {
+                        lines[k] = null;
+                    }
                     i = 0;
                 }
             }
