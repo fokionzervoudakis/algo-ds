@@ -12,9 +12,9 @@ class Fib {
      @return the {@code n}th Fibonacci number
      */
     int it(int n) {
-        int a = 0, b = 1;
+        int a = 0, b = 1, c;
         for (int i = 0; i < n; i++) {
-            int c = a + b;
+            c = a + b;
             a = b;
             b = c;
         }
