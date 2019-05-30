@@ -26,7 +26,7 @@ import java.util.Stack;
  <li>lca_time_worst=O(n)
 
  <li>space_avg=O(log n)
- <li>space_worst=O(n)s
+ <li>space_worst=O(n)
 
  </ul>
  */
