@@ -13,39 +13,38 @@ class Matrix {
         return swapRows(swapColumns(M));
     }
 
-    int[][] transpose(int[][] M1) {
-        int m = M1.length, n = M1[0].length;
-        int[][] M2 = new int[n][m];
+    int[][] transpose(int[][] M) {
+        int m = M.length, n = M[0].length;
+        int[][] tmp = new int[n][m];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                M2[i][j] = M1[j][i];
+                tmp[i][j] = M[j][i];
             }
         }
-        return M2;
+        return tmp;
 
     }
 
-    int[][] swapColumns(int[][] M1) {
-        int m = M1.length, n = M1[0].length;
-        int[][] M2 = new int[m][n];
+    int[][] swapColumns(int[][] M) {
+        int m = M.length, n = M[0].length;
+        int[][] tmp = new int[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                M2[i][j] = M1[m - i - 1][j];
+                tmp[i][j] = M[m - i - 1][j];
             }
         }
-        return M2;
+        return tmp;
 
     }
 
-    int[][] swapRows(int[][] M1) {
-        int m = M1.length, n = M1[0].length;
-        int[][] M2 = new int[m][n];
+    int[][] swapRows(int[][] M) {
+        int m = M.length, n = M[0].length;
+        int[][] tmp = new int[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                M2[i][j] = M1[i][n - j - 1];
+                tmp[i][j] = M[i][n - j - 1];
             }
         }
-        return M2;
-
+        return tmp;
     }
 }
