@@ -4,7 +4,6 @@ import annotation.InPlace;
 import annotation.Unstable;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 
 /**
@@ -51,9 +50,7 @@ class BinHeap<T> {
     private void siftUp(int i) {
         int p = parent(i);
         while (i > 0 && c.compare(A[i], A[p]) < 0) {
-            T t = A[i];
-            A[i] = A[p];
-            A[p] = t;
+            swap(A, i, p);
             i = p;
             p = parent(i);
         }
@@ -82,9 +79,7 @@ class BinHeap<T> {
                 j = -1;
             }
             if (j >= 0) {
-                T t = A[i];
-                A[i] = A[j];
-                A[j] = t;
+                swap(A, i, j);
             }
             i = j;
         } while (i >= 0);
@@ -116,12 +111,10 @@ class BinHeap<T> {
     void sort() {
         int n = len;
         while (len > 1) {
-            T t = A[--len];
-            A[len] = A[0];
-            A[0] = t;
+            swap(A, --len, 0);
             siftDown(0);
         }
-        Collections.reverse(Arrays.asList(A));
+        reverse(A);
         len = n;
     }
 
@@ -129,6 +122,19 @@ class BinHeap<T> {
         T[] B = (T[]) new Object[Math.max(len * 2, 1)];
         System.arraycopy(A, 0, B, 0, len);
         A = B;
+    }
+
+    private static <T> void reverse(T[] A) {
+        int l = 0, r = A.length - 1;
+        while (l < r) {
+            swap(A, l++, r--);
+        }
+    }
+
+    private static <T> void swap(T[] A, int i, int j) {
+        T t = A[i];
+        A[i] = A[j];
+        A[j] = t;
     }
 
     @Override
