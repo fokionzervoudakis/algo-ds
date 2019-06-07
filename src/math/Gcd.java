@@ -13,8 +13,9 @@ class Gcd {
      @return the greatest common divisor of {@code a} and {@code b}
      */
     int it(int a, int b) {
+        int n;
         while (b != 0) {
-            int n = b;
+            n = b;
             b = a % b;
             a = n;
         }
@@ -30,10 +31,7 @@ class Gcd {
      @return the greatest common divisor of {@code a} and {@code b}
      */
     int rec(int a, int b) {
-        if (b == 0) {
-            return a;
-        }
-        return rec(b, a % b);
+        return (b == 0) ? a : rec(b, a % b);
     }
 
     int multiRec(int[] A) {
