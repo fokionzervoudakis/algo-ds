@@ -29,13 +29,10 @@ class DpFib {
          */
         @Memoization
         int fib(int n) {
-            if (M.containsKey(n)) {
-                return M.get(n);
-            } else {
-                int f = (n < 2) ? n : fib(n - 1) + fib(n - 2);
-                M.put(n, f);
-                return f;
+            if (!M.containsKey(n)) {
+                M.put(n, (n < 2) ? n : fib(n - 1) + fib(n - 2));
             }
+            return M.get(n);
         }
     }
 
