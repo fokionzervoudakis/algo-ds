@@ -12,7 +12,7 @@ class DpKnapsack {
 
         /**
          Uses recursive (top-down) dynamic programming with memoization to
-         calculate solve the knapsack problem.
+         solve the knapsack problem.
          <ul>
          <li>time_worst=O(mn)
          <li>space_worst=O(mn)
