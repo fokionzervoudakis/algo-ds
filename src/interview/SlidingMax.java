@@ -1,6 +1,7 @@
 package interview;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,9 +19,9 @@ class SlidingMax {
      @return the maximum values of each sub-array of length {@code k}
      */
     List<Integer> getMax(int[] A, int k) {
-        var L = new ArrayList<Integer>();
-        var Q = new LinkedList<Integer>();
-        for (var i = 0; i < A.length; i++) {
+        List<Integer> L = new ArrayList<>();
+        Deque<Integer> Q = new LinkedList<>();
+        for (int i = 0; i < A.length; i++) {
             if ((!Q.isEmpty()) && Q.peekFirst() <= i - k) {
                 Q.removeFirst();
             }
