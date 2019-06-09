@@ -19,8 +19,7 @@ class SLList<T> {
 
     class Stack {
         void push(T t) {
-            Node<T> n = new Node<>();
-            n.t = t;
+            Node<T> n = new Node<>(t);
             n.next = head;
             head = n;
             if (len == 0) {
@@ -49,8 +48,7 @@ class SLList<T> {
 
     class Queue {
         void add(T t) {
-            Node<T> n = new Node<>();
-            n.t = t;
+            Node<T> n = new Node<>(t);
             if (len == 0) {
                 head = n;
             } else {
@@ -78,9 +76,33 @@ class SLList<T> {
         }
     }
 
+    static Node floyd(Node N) {
+        Node T, H;
+        try {
+            T = N.next;
+            H = N.next.next;
+            while (T != H) {
+                T = T.next;
+                H = H.next.next;
+            }
+        } catch (Exception e) {
+            return null;
+        }
+        T = N;
+        while (T != H) {
+            T = T.next;
+            H = H.next;
+        }
+        return T;
+    }
+
     static class Node<T> {
         T t;
         Node<T> next;
+
+        Node(T t) {
+            this.t = t;
+        }
 
         @Override
         public String toString() {
