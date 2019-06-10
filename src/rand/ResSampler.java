@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-class AlgorithmR {
+class ResSampler {
     /**
      Uses Algorithm R to uniformly select a random element from {@code A} (a.k.a
      reservoir sampling).
@@ -40,7 +40,7 @@ class AlgorithmR {
         var A = IntStream.range(0, 10).toArray();
         var M = new HashMap<Integer, Double>();
         for (var i = 0; i < max; i++) {
-            var n = AlgorithmR.pick(A);
+            var n = ResSampler.pick(A);
             M.put(n, M.containsKey(n) ? M.get(n) + 1 : 1);
         }
         for (var E : M.entrySet()) {
