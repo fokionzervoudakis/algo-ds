@@ -76,8 +76,8 @@ class SLList<T> {
         }
     }
 
-    static Node floyd(Node N) {
-        Node T, H;
+    static <T> Node<T> floyd(Node<T> N) {
+        Node<T> T, H;
         try {
             T = N.next;
             H = N.next.next;
