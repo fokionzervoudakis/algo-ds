@@ -1,8 +1,5 @@
 package misc;
 
-/**
- {@link Diff}
- */
 class Lis {
     /**
      Asymptotic analysis:

@@ -1,5 +1,8 @@
 package misc;
 
+/**
+ {@link Diff}
+ */
 class Lcs {
     /**
      Calculates the length of the longest common sub-sequence (i.e. the longest
