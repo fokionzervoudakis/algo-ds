@@ -1,15 +1,27 @@
 package graph;
 
 class Vertex {
-    int d = 0;
-    boolean visited = false;
+    private int key;
 
-    Vertex p;
+    private Vertex parent;
 
-    int key;
+    Vertex() {
+    }
 
     Vertex(int key) {
         this.key = key;
+    }
+
+    int getKey() {
+        return key;
+    }
+
+    Vertex getParent() {
+        return parent;
+    }
+
+    void setParent(Vertex v) {
+        this.parent = v;
     }
 
     @Override

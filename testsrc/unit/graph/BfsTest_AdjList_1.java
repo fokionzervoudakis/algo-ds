@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BfsTest_AdjList_1 {
-    private Graph<Vertex> G;
-    private Vertex v0;
+    private Graph<Bfs.Vertex> G;
+    private Bfs.Vertex v0;
     private Bfs bfs;
 
     @BeforeEach
     void beforeEach() {
-        v0 = new Stub(0);
+        v0 = new Bfs.Vertex(0);
 
         G = new AdjList<>();
         G.addVertex(v0);
@@ -32,7 +32,7 @@ class BfsTest_AdjList_1 {
 
     @Test
     void itSearchesOneVertexWithOneNeighbor() {
-        G.addEdge(v0, new Stub(1));
+        G.addEdge(v0, new Bfs.Vertex(1));
 
         bfs.bfs(G, v0);
 
@@ -44,8 +44,8 @@ class BfsTest_AdjList_1 {
 
     @Test
     void itSearchesOneVertexWithManyNeighbors() {
-        G.addEdge(v0, new Stub(1));
-        G.addEdge(v0, new Stub(2));
+        G.addEdge(v0, new Bfs.Vertex(1));
+        G.addEdge(v0, new Bfs.Vertex(2));
 
         bfs.bfs(G, v0);
 
@@ -54,17 +54,4 @@ class BfsTest_AdjList_1 {
 
         assertEquals(expected, actual);
     }
-
-    //<editor-fold desc="stubs">
-    class Stub extends Vertex {
-        Stub(int key) {
-            super(key);
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + ":" + d;
-        }
-    }
-    //</editor-fold>
 }

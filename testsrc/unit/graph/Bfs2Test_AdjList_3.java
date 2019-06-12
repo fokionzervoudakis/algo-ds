@@ -5,18 +5,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-class ColoringTest_AdjList_3 {
+class Bfs2Test_AdjList_3 {
     @Test
     void itSearchesManyVerticesWithManyNeighbors() {
-        var v0 = new Stub(0);
-        var v1 = new Stub(1);
-        var v2 = new Stub(2);
-        var v3 = new Stub(3);
-        var v4 = new Stub(4);
-        var v5 = new Stub(5);
-        var v6 = new Stub(6);
+        var v0 = new Bfs2.Vertex(0);
+        var v1 = new Bfs2.Vertex(1);
+        var v2 = new Bfs2.Vertex(2);
+        var v3 = new Bfs2.Vertex(3);
+        var v4 = new Bfs2.Vertex(4);
+        var v5 = new Bfs2.Vertex(5);
+        var v6 = new Bfs2.Vertex(6);
 
-        var G = new AdjList<Coloring.Vertex>();
+        var G = new AdjList<Bfs2.Vertex>();
 
         G.addEdge(v0, v1);
         G.addEdge(v0, v2);
@@ -33,18 +33,18 @@ class ColoringTest_AdjList_3 {
         G.addEdge(v1, v0); // ignored symmetric path: v0 -> v1 -> v0
         G.addEdge(v6, v0); // ignored asymmetric path: v0 -> v2 -> v6 -> v0
 
-        assertFalse(new Coloring().new Bfs().isBipartite(G, v0));
+        assertFalse(new Bfs2().isBipartite(G, v0));
 
         //@formatter:off
         var expected =
                 "{" +
-                    "0:WH:0=[1:BK:1, 2:BK:1, 4:BK:1, 0:WH:0], " +
-                    "1:BK:1=[3:null:0, 5:null:0, 0:WH:0], " +
-                    "2:BK:1=[6:null:0], " +
-                    "4:BK:1=[5:null:0], " +
+                    "0:WHITE:0=[1:BLACK:1, 2:BLACK:1, 4:BLACK:1, 0:WHITE:0], " +
+                    "1:BLACK:1=[3:null:0, 5:null:0, 0:WHITE:0], " +
+                    "2:BLACK:1=[6:null:0], " +
+                    "4:BLACK:1=[5:null:0], " +
                     "3:null:0=[], " +
                     "5:null:0=[], " +
-                    "6:null:0=[0:WH:0]" +
+                    "6:null:0=[0:WHITE:0]" +
                 "}";
         //@formatter:on
 
@@ -53,16 +53,4 @@ class ColoringTest_AdjList_3 {
         assertEquals(expected, actual);
     }
 
-    //<editor-fold desc="stubs">
-    class Stub extends Coloring.Vertex {
-        Stub(int key) {
-            super(key);
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + ":" + d;
-        }
-    }
-    //</editor-fold>
 }

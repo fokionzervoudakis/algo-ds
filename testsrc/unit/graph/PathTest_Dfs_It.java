@@ -7,15 +7,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class PathTest_Dfs_It {
     @Test
     void itPrintsTheShortestPaths() {
-        var v0 = new Vertex(0);
-        var v1 = new Vertex(1);
-        var v2 = new Vertex(2);
-        var v3 = new Vertex(3);
-        var v4 = new Vertex(4);
-        var v5 = new Vertex(5);
-        var v6 = new Vertex(6);
+        var v0 = new Stub(0);
+        var v1 = new Stub(1);
+        var v2 = new Stub(2);
+        var v3 = new Stub(3);
+        var v4 = new Stub(4);
+        var v5 = new Stub(5);
+        var v6 = new Stub(6);
 
-        var G = new AdjMatrix<>(7);
+        var G = new AdjMatrix<Dfs.Vertex>(7);
 
         G.addEdge(v0, v1);
         G.addEdge(v0, v2);
@@ -46,4 +46,17 @@ class PathTest_Dfs_It {
 
         assertEquals("0 -> 2 -> 6", Path.print(v0, v6));
     }
+
+    //<editor-fold desc="stubs">
+    class Stub extends Dfs.Vertex {
+        Stub(int key) {
+            super(key);
+        }
+
+        @Override
+        public String toString() {
+            return getKey() + "";
+        }
+    }
+    //</editor-fold>
 }

@@ -4,10 +4,10 @@ class Path {
     static String print(Vertex src, Vertex dest) {
         if (dest.equals(src)) {
             return dest + "";
-        } else if (dest.p == null) {
+        } else if (dest.getParent() == null) {
             return null;
         } else {
-            return print(src, dest.p) + " -> " + dest;
+            return print(src, dest.getParent()) + " -> " + dest;
         }
     }
 }

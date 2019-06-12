@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DfsTest_It_2 {
-    private Graph<Vertex> G;
-    private Vertex v0;
+    private Graph<Dfs.Vertex> G;
+    private Dfs.Vertex v0;
     private Dfs.It dfs;
 
     @BeforeEach
     void beforeEach() {
-        v0 = new Vertex(0);
+        v0 = new Dfs.Vertex(0);
 
         G = new AdjList<>();
         G.addVertex(v0);
@@ -35,7 +35,7 @@ class DfsTest_It_2 {
 
     @Test
     void itIgnoresCyclesFromSymmetricPaths() {
-        var v1 = new Vertex(1);
+        var v1 = new Dfs.Vertex(1);
 
         // v0 -> v1 -> v0
         G.addEdge(v0, v1);
@@ -51,8 +51,8 @@ class DfsTest_It_2 {
 
     @Test
     void itIgnoresCyclesFromAsymmetricPaths() {
-        var v1 = new Vertex(1);
-        var v2 = new Vertex(2);
+        var v1 = new Dfs.Vertex(1);
+        var v2 = new Dfs.Vertex(2);
 
         // v0 -> v1 -> v2 -> v0
         G.addEdge(v0, v1);

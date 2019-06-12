@@ -6,8 +6,8 @@ class Dfs {
     class It {
         /**
          Uses iterative depth-first search backed by a last-in-first-out data
-         structure to detect cycles, and topologically sort all vertices, in a
-         directed acyclic graph {@code G=(V,E)}.
+         structure to topologically sort all vertices in a directed acyclic graph
+         {@code G=(V,E)}.
          <ul>
          <li>time_worst=O(V+E)
          <li>space_worst=O(V)
@@ -31,7 +31,7 @@ class Dfs {
                 u.visited = true;
                 for (Vertex v : G.outEdges(u)) {
                     if (!v.visited) {
-                        v.p = u;
+                        v.setParent(u);
                         S.push(v);
                     }
                 }
@@ -41,8 +41,8 @@ class Dfs {
 
     class Rec {
         /**
-         Uses recursive depth-first search to detect cycles, and topologically
-         sort all vertices, in a directed acyclic graph {@code G=(V,E)}.
+         Uses recursive depth-first search to topologically sort all vertices in
+         a directed acyclic graph {@code G=(V,E)}.
          <ul>
          <li>time_worst=O(V+E)
          <li>space_worst=O(V)
@@ -62,10 +62,18 @@ class Dfs {
             u.visited = true;
             for (Vertex v : G.outEdges(u)) {
                 if (!v.visited) {
-                    v.p = u;
+                    v.setParent(u);
                     dfsVisit(G, v);
                 }
             }
+        }
+    }
+
+    static class Vertex extends graph.Vertex {
+        boolean visited = false;
+
+        Vertex(int key) {
+            super(key);
         }
     }
 }

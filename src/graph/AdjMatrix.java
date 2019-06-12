@@ -30,32 +30,32 @@ class AdjMatrix<T extends Vertex> implements Graph<T> {
 
     @Override
     public void addVertex(T u) {
-        M[u.key][u.key] = u;
+        M[u.getKey()][u.getKey()] = u;
     }
 
     @Override
     public void addEdge(T u, T v) {
         addVertex(u);
         addVertex(v);
-        M[u.key][v.key] = v;
+        M[u.getKey()][v.getKey()] = v;
     }
 
     @Override
     public void removeEdge(T u, T v) {
-        M[u.key][v.key] = null;
+        M[u.getKey()][v.getKey()] = null;
     }
 
     @Override
     public boolean hasEdge(T u, T v) {
-        return M[u.key][v.key] != null;
+        return M[u.getKey()][v.getKey()] != null;
     }
 
     @Override
     public List<T> inEdges(T u) {
         var L = new ArrayList<T>();
         for (int i = 0; i < n; i++) {
-            if (i != u.key) {
-                var v = M[i][u.key];
+            if (i != u.getKey()) {
+                var v = M[i][u.getKey()];
                 if (v != null) {
                     L.add(M[i][i]);
                 }
@@ -68,8 +68,8 @@ class AdjMatrix<T extends Vertex> implements Graph<T> {
     public List<T> outEdges(T u) {
         var L = new ArrayList<T>();
         for (int j = 0; j < n; j++) {
-            if (j != u.key) {
-                var v = M[u.key][j];
+            if (j != u.getKey()) {
+                var v = M[u.getKey()][j];
                 if (v != null) {
                     L.add(v);
                 }

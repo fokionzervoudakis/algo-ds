@@ -5,24 +5,24 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DfsTest_Rec_1 {
-    private Graph<Dfs.Vertex> G;
-    private Dfs.Vertex v0;
-    private Dfs.Rec dfs;
+class Dfs2Test_It_1 {
+    private Graph<Dfs2.Vertex> G;
+    private Dfs2.Vertex v0;
+    private Dfs2 dfs;
 
     @BeforeEach
     void beforeEach() {
-        v0 = new Dfs.Vertex(0);
+        v0 = new Dfs2.Vertex(0);
 
         G = new AdjList<>();
         G.addVertex(v0);
 
-        dfs = new Dfs().new Rec();
+        dfs = new Dfs2();
     }
 
     @Test
     void itSearchesOneVertexWithZeroNeighbors() {
-        dfs.dfs(G);
+        dfs.dfs(G, v0);
 
         var expected = "{0=[]}";
         var actual = G.toString();
@@ -32,9 +32,9 @@ class DfsTest_Rec_1 {
 
     @Test
     void itSearchesOneVertexWithOneNeighbor() {
-        G.addEdge(v0, new Dfs.Vertex(1));
+        G.addEdge(v0, new Dfs2.Vertex(1));
 
-        dfs.dfs(G);
+        dfs.dfs(G, v0);
 
         var expected = "{0=[1], 1=[]}";
         var actual = G.toString();
@@ -44,10 +44,10 @@ class DfsTest_Rec_1 {
 
     @Test
     void itSearchesOneVertexWithManyNeighbors() {
-        G.addEdge(v0, new Dfs.Vertex(1));
-        G.addEdge(v0, new Dfs.Vertex(2));
+        G.addEdge(v0, new Dfs2.Vertex(1));
+        G.addEdge(v0, new Dfs2.Vertex(2));
 
-        dfs.dfs(G);
+        dfs.dfs(G, v0);
 
         var expected = "{0=[1, 2], 1=[], 2=[]}";
         var actual = G.toString();

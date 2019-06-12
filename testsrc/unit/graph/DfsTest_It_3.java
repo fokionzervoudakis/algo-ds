@@ -7,15 +7,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class DfsTest_It_3 {
     @Test
     void itSearchesManyVerticesWithManyNeighbors() {
-        var v0 = new Vertex(0);
-        var v1 = new Vertex(1);
-        var v2 = new Vertex(2);
-        var v3 = new Vertex(3);
-        var v4 = new Vertex(4);
-        var v5 = new Vertex(5);
-        var v6 = new Vertex(6);
+        var v0 = new Dfs.Vertex(0);
+        var v1 = new Dfs.Vertex(1);
+        var v2 = new Dfs.Vertex(2);
+        var v3 = new Dfs.Vertex(3);
+        var v4 = new Dfs.Vertex(4);
+        var v5 = new Dfs.Vertex(5);
+        var v6 = new Dfs.Vertex(6);
 
-        var G = new AdjList<>();
+        var G = new AdjList<Dfs.Vertex>();
 
         G.addEdge(v0, v1);
         G.addEdge(v0, v2);

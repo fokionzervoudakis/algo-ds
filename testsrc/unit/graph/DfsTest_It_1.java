@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DfsTest_It_1 {
-    private Graph<Vertex> G;
-    private Vertex v0;
+    private Graph<Dfs.Vertex> G;
+    private Dfs.Vertex v0;
     private Dfs.It dfs;
 
     @BeforeEach
     void beforeEach() {
-        v0 = new Vertex(0);
+        v0 = new Dfs.Vertex(0);
 
         G = new AdjList<>();
         G.addVertex(v0);
@@ -32,7 +32,7 @@ class DfsTest_It_1 {
 
     @Test
     void itSearchesOneVertexWithOneNeighbor() {
-        G.addEdge(v0, new Vertex(1));
+        G.addEdge(v0, new Dfs.Vertex(1));
 
         dfs.dfs(G);
 
@@ -44,8 +44,8 @@ class DfsTest_It_1 {
 
     @Test
     void itSearchesOneVertexWithManyNeighbors() {
-        G.addEdge(v0, new Vertex(1));
-        G.addEdge(v0, new Vertex(2));
+        G.addEdge(v0, new Dfs.Vertex(1));
+        G.addEdge(v0, new Dfs.Vertex(2));
 
         dfs.dfs(G);
 

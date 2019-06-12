@@ -3,50 +3,49 @@ package graph;
 import java.util.ArrayList;
 import java.util.List;
 
-class Bfs {
-    /**
-     Uses breadth-first search to compute shortest path distances from a given
-     source vertex {@code start} to every vertex reachable from {@code start} in
-     an unweighted (directed/undirected) graph {@code G=(V,E)}.
-     <p>
-     Note: BFS is not an effective method for topological sort because vertices
-     in a shortest path need not be topologically ordered.
-     <ul>
-     <li>time_worst=O(V+E)
-     <li>space_worst=O(V)
-     </ul>
+import static graph.Color.BLACK;
+import static graph.Color.WHITE;
 
-     @param G a graph
-     @param start the source vertex in {@code G}
-     */
-    void bfs(Graph<Vertex> G, Vertex start) {
+class Bfs2 {
+    boolean isBipartite(Graph<Vertex> G, Vertex start) {
         List<Vertex> Q = new ArrayList<>();
         Q.add(start);
         start.visited = true;
+        start.color = WHITE;
         while (!Q.isEmpty()) {
             Vertex u = Q.remove(0);
             for (Vertex v : G.outEdges(u)) {
-                if (!v.visited) {
+                if (v.visited || v.color == u.color) {
+                    return false;
+                } else {
                     v.setParent(u);
                     v.d = u.d + 1;
                     v.visited = true;
+                    v.color = u.complement();
                     Q.add(v);
                 }
             }
         }
+        return true;
     }
 
     static class Vertex extends graph.Vertex {
         int d = 0;
         boolean visited = false;
 
+        Color color;
+
         Vertex(int key) {
             super(key);
         }
 
+        Color complement() {
+            return (color == WHITE) ? BLACK : WHITE;
+        }
+
         @Override
         public String toString() {
-            return super.toString() + ":" + d;
+            return super.toString() + ":" + color + ":" + d;
         }
     }
 }

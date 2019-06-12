@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BfsTest_AdjList_2 {
-    private Graph<Vertex> G;
-    private Vertex v0;
+    private Graph<Bfs.Vertex> G;
+    private Bfs.Vertex v0;
     private Bfs bfs;
 
     @BeforeEach
     void beforeEach() {
-        v0 = new Stub(0);
+        v0 = new Bfs.Vertex(0);
         G = new AdjList<>();
         bfs = new Bfs();
     }
@@ -32,7 +32,7 @@ class BfsTest_AdjList_2 {
 
     @Test
     void itIgnoresCyclesFromSymmetricPaths() {
-        var v1 = new Stub(1);
+        var v1 = new Bfs.Vertex(1);
 
         // v0 -> v1 -> v0
         G.addEdge(v0, v1);
@@ -48,8 +48,8 @@ class BfsTest_AdjList_2 {
 
     @Test
     void itIgnoresCyclesFromAsymmetricPaths() {
-        var v1 = new Stub(1);
-        var v2 = new Stub(2);
+        var v1 = new Bfs.Vertex(1);
+        var v2 = new Bfs.Vertex(2);
 
         // v0 -> v1 -> v2 -> v0
         G.addEdge(v0, v1);
@@ -63,17 +63,4 @@ class BfsTest_AdjList_2 {
 
         assertEquals(expected, actual);
     }
-
-    //<editor-fold desc="stubs">
-    class Stub extends Vertex {
-        Stub(int key) {
-            super(key);
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + ":" + d;
-        }
-    }
-    //</editor-fold>
 }
