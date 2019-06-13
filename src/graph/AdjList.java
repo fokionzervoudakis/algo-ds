@@ -70,7 +70,7 @@ class AdjList<T extends Vertex> implements Graph<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new ArrayList<>(M.keySet()).iterator();
+        return M.keySet().iterator();
     }
 
     @Override
