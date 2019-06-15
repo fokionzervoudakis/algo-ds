@@ -1,6 +1,6 @@
 package interview;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 class PathSearch {
     int search(char[][] M, int x, int y) {
@@ -8,11 +8,11 @@ class PathSearch {
 
         var visited = new boolean[len][len];
 
-        var Q = new ArrayList<Point>();
+        var Q = new LinkedList<Point>();
         Q.add(new Point(x, y, 0));
 
         while (!Q.isEmpty()) {
-            var p = Q.remove(0);
+            var p = Q.removeFirst();
             if (!visited[p.x][p.y]) {
                 visited[p.x][p.y] = true;
                 if (M[p.x][p.y] == 'X') {
@@ -20,16 +20,16 @@ class PathSearch {
                 }
                 var d = p.d + 1;
                 if (p.x - 1 >= 0) {
-                    Q.add(new Point(p.x - 1, p.y, d));
+                    Q.addLast(new Point(p.x - 1, p.y, d));
                 }
                 if (p.x + 1 < len) {
-                    Q.add(new Point(p.x + 1, p.y, d));
+                    Q.addLast(new Point(p.x + 1, p.y, d));
                 }
                 if (p.y - 1 >= 0) {
-                    Q.add(new Point(p.x, p.y - 1, d));
+                    Q.addLast(new Point(p.x, p.y - 1, d));
                 }
                 if (p.y + 1 < len) {
-                    Q.add(new Point(p.x, p.y + 1, d));
+                    Q.addLast(new Point(p.x, p.y + 1, d));
                 }
             }
         }

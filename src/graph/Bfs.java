@@ -1,7 +1,7 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Deque;
+import java.util.LinkedList;
 
 class Bfs {
     /**
@@ -20,17 +20,17 @@ class Bfs {
      @param start the source vertex in {@code G}
      */
     void bfs(Graph<Vertex> G, Vertex start) {
-        List<Vertex> Q = new ArrayList<>();
+        Deque<Vertex> Q = new LinkedList<>();
         Q.add(start);
         start.visited = true;
         while (!Q.isEmpty()) {
-            Vertex u = Q.remove(0);
+            Vertex u = Q.removeFirst();
             for (Vertex v : G.outEdges(u)) {
                 if (!v.visited) {
                     v.setParent(u);
                     v.d = u.d + 1;
                     v.visited = true;
-                    Q.add(v);
+                    Q.addLast(v);
                 }
             }
         }

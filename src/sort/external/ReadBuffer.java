@@ -4,13 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Deque;
+import java.util.LinkedList;
 
 class ReadBuffer {
     private static final int CHUNK_SIZE = 5;
 
-    private final List<String> buffer = new ArrayList<>();
+    private final Deque<String> buffer = new LinkedList<>();
 
     private final BufferedReader reader;
 
@@ -23,19 +23,19 @@ class ReadBuffer {
         var i = 0;
         String line;
         while (i++ < CHUNK_SIZE && (line = reader.readLine()) != null) {
-            buffer.add(line);
+            buffer.addLast(line);
         }
     }
 
     String next() {
-        return (buffer.isEmpty()) ? null : buffer.get(0);
+        return (buffer.isEmpty()) ? null : buffer.getFirst();
     }
 
     String remove() throws IOException {
         if (buffer.isEmpty()) {
             read();
         }
-        return (buffer.isEmpty()) ? null : buffer.remove(0);
+        return (buffer.isEmpty()) ? null : buffer.removeFirst();
     }
 
     @Override

@@ -1,6 +1,6 @@
 package interview;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 class ClusterSize {
     private boolean[][] visited;
@@ -24,27 +24,27 @@ class ClusterSize {
     }
 
     private int dfs(char[][] M, int x, int y) {
-        var Q = new ArrayList<Point>();
+        var Q = new LinkedList<Point>();
         Q.add(new Point(x, y));
 
         int count = 0;
 
         while (!Q.isEmpty()) {
-            var p = Q.remove(0);
+            var p = Q.removeFirst();
             if (!visited[p.x][p.y] && M[p.x][p.y] == M[x][y]) {
                 visited[p.x][p.y] = true;
                 count++;
                 if (p.x - 1 >= 0) {
-                    Q.add(new Point(p.x - 1, p.y));
+                    Q.addLast(new Point(p.x - 1, p.y));
                 }
                 if (p.x + 1 < M.length) {
-                    Q.add(new Point(p.x + 1, p.y));
+                    Q.addLast(new Point(p.x + 1, p.y));
                 }
                 if (p.y - 1 >= 0) {
-                    Q.add(new Point(p.x, p.y - 1));
+                    Q.addLast(new Point(p.x, p.y - 1));
                 }
                 if (p.y + 1 < M[0].length) {
-                    Q.add(new Point(p.x, p.y + 1));
+                    Q.addLast(new Point(p.x, p.y + 1));
                 }
             }
         }

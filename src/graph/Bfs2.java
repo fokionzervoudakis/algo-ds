@@ -1,19 +1,19 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Deque;
+import java.util.LinkedList;
 
 import static graph.Color.BLACK;
 import static graph.Color.WHITE;
 
 class Bfs2 {
     boolean isBipartite(Graph<Vertex> G, Vertex start) {
-        List<Vertex> Q = new ArrayList<>();
+        Deque<Vertex> Q = new LinkedList<>();
         Q.add(start);
         start.visited = true;
         start.color = WHITE;
         while (!Q.isEmpty()) {
-            Vertex u = Q.remove(0);
+            Vertex u = Q.removeFirst();
             for (Vertex v : G.outEdges(u)) {
                 if (v.visited || v.color == u.color) {
                     return false;
@@ -22,7 +22,7 @@ class Bfs2 {
                     v.d = u.d + 1;
                     v.visited = true;
                     v.color = u.complement();
-                    Q.add(v);
+                    Q.addLast(v);
                 }
             }
         }
