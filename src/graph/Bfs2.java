@@ -3,15 +3,12 @@ package graph;
 import java.util.Deque;
 import java.util.LinkedList;
 
-import static graph.Color.BLACK;
-import static graph.Color.WHITE;
-
 class Bfs2 {
     boolean isBipartite(Graph<Vertex> G, Vertex start) {
         Deque<Vertex> Q = new LinkedList<>();
         Q.add(start);
         start.visited = true;
-        start.color = WHITE;
+        start.color = Color.WHITE;
         while (!Q.isEmpty()) {
             Vertex u = Q.removeFirst();
             for (Vertex v : G.outEdges(u)) {
@@ -40,7 +37,7 @@ class Bfs2 {
         }
 
         Color complement() {
-            return (color == WHITE) ? BLACK : WHITE;
+            return (color == Color.WHITE) ? Color.BLACK : Color.WHITE;
         }
 
         @Override

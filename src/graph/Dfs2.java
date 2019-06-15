@@ -1,9 +1,5 @@
 package graph;
 
-import static graph.Color.BLACK;
-import static graph.Color.GRAY;
-import static graph.Color.WHITE;
-
 class Dfs2 {
     /**
      Uses recursive depth-first search to detect cycles in a directed acyclic
@@ -17,21 +13,21 @@ class Dfs2 {
      @param G a graph
      */
     void dfs(Graph<Vertex> G, Vertex u) {
-        u.color = GRAY;
+        u.color = Color.GRAY;
         for (Vertex v : G.outEdges(u)) {
-            if (v.color == GRAY) {
+            if (v.color == Color.GRAY) {
                 throw new RuntimeException();
-            } else if (v.color == WHITE) {
+            } else if (v.color == Color.WHITE) {
                 v.setParent(u);
-                v.color = GRAY;
+                v.color = Color.GRAY;
                 dfs(G, v);
             }
         }
-        u.color = BLACK;
+        u.color = Color.BLACK;
     }
 
     static class Vertex extends graph.Vertex {
-        Color color = WHITE;
+        Color color = Color.WHITE;
 
         Vertex(int key) {
             super(key);
