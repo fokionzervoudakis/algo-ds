@@ -1,7 +1,7 @@
 package misc;
 
 /**
- {@link Lcs}
+ {@link DpLcs}
  */
 class Diff {
     /**

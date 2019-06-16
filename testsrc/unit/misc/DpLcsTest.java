@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class LcsTest {
-    private Lcs lcs;
+class DpLcsTest {
+    private DpLcs lcs;
 
     @BeforeEach
     void beforeEach() {
-        lcs = new Lcs();
+        lcs = new DpLcs();
     }
 
     @Test

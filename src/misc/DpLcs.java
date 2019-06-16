@@ -3,7 +3,7 @@ package misc;
 /**
  {@link Diff}
  */
-class Lcs {
+class DpLcs {
     /**
      Calculates the length of the longest common sub-sequence (i.e. the longest
      sequence of characters common to all sequences) in two arrays.
