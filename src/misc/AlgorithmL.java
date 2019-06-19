@@ -16,8 +16,7 @@ class AlgorithmL {
      */
     @InPlace
     void next(int[] A) {
-        int n = A.length;
-        int i = n - 2;
+        int n = A.length, i = n - 2;
         while (i >= 0 && A[i] >= A[i + 1]) {
             i--;
         }
