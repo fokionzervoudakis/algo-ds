@@ -6,6 +6,9 @@ class AlgorithmL {
     /**
      Uses Knuth's Algorithm L to generate the next lexicographic permutation of
      an element sequence.
+     <p>https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order
+     <p>http://www.cs.utsa.edu/~wagner/knuth/
+     <p>http://www.cs.utsa.edu/~wagner/knuth/fasc2b.pdf
      <p>Asymptotic analysis:
      <ul>
      <li>time_worst=O(n)
