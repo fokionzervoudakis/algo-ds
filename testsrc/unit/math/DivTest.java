@@ -39,7 +39,7 @@ class DivTest {
         try {
             div.quo(0, 0);
             fail(new Throwable());
-        } catch (ArithmeticException ignored) {
+        } catch (RuntimeException ignored) {
         }
     }
 
@@ -48,7 +48,7 @@ class DivTest {
         try {
             div.rem(0, 0);
             fail(new Throwable());
-        } catch (ArithmeticException ignored) {
+        } catch (RuntimeException ignored) {
         }
     }
 }

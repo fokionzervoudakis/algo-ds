@@ -13,7 +13,7 @@ class Div {
     @Math
     int quo(int a, int b) {
         if (b == 0) {
-            throw new ArithmeticException();
+            throw new RuntimeException();
         }
         int q = 0;
         while (a >= b) {
@@ -32,7 +32,7 @@ class Div {
      */
     @Math
     int rem(int a, int b) {
-        if (b == 0) throw new ArithmeticException();
+        if (b == 0) throw new RuntimeException();
         while (a >= b) {
             a -= b;
         }
