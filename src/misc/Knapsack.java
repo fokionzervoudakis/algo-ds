@@ -8,22 +8,22 @@ class Knapsack {
      <li>space_worst=O(n)
      </ul>
 
-     @param w the item weights
-     @param v the item values
+     @param W the item weights
+     @param V the item values
      @param size the size of the knapsack
      @return the max value that can be obtained from items with {@code w} weights
      and {@code v} values when total weight is less than or equal to {@code size}
      */
-    int max(int[] w, int[] v, int size) {
-        return helper(w, v, 0, size);
+    int max(int[] W, int[] V, int size) {
+        return helper(W, V, 0, size);
     }
 
-    private int helper(int[] w, int[] v, int i, int size) {
-        if (i == w.length) {
+    private int helper(int[] W, int[] V, int i, int size) {
+        if (i == W.length) {
             return 0;
         } else {
-            int a = helper(w, v, i + 1, size);
-            int b = (size >= w[i]) ? helper(w, v, i + 1, size - w[i]) + v[i] : 0;
+            int a = helper(W, V, i + 1, size);
+            int b = (size >= W[i]) ? helper(W, V, i + 1, size - W[i]) + V[i] : 0;
             return Math.max(a, b);
         }
     }
