@@ -7,9 +7,9 @@ import java.util.Arrays;
  <p>https://algs4.cs.princeton.edu/63suffix/SuffixArrayX.java.html
  */
 public class SuffixArr {
-    private final String str;
+    String str;
 
-    private final Suffix[] A;
+    Suffix[] A;
 
     public SuffixArr(String str) {
         this.str = str;
