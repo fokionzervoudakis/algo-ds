@@ -22,4 +22,14 @@ class SuffixArrTest {
         var arr = new SuffixArr("abc");
         assertEquals("[abc, bc, c]", arr.toString());
     }
+
+    @Test
+    void itCalculatesLcpLength() {
+        var arr = new SuffixArr("banana");
+        assertEquals(1, arr.lcpLength(1));
+        assertEquals(3, arr.lcpLength(2));
+        assertEquals(0, arr.lcpLength(3));
+        assertEquals(0, arr.lcpLength(4));
+        assertEquals(2, arr.lcpLength(5));
+    }
 }

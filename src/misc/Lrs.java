@@ -19,16 +19,16 @@ class Lrs {
         // O(n^2 log n)
         SuffixArr arr = new SuffixArr(str);
 
-        String max = "";
+        String lrs = "";
 
         for (int i = 1; i < str.length(); i++) {
-            int n = arr.lcp(i);
-            if (n > max.length()) {
+            int len = arr.lcpLength(i);
+            if (len > lrs.length()) {
                 int j = arr.index(i);
-                max = str.substring(j, j + n);
+                lrs = str.substring(j, j + len);
             }
         }
 
-        return max;
+        return lrs;
     }
 }

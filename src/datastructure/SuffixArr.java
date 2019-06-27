@@ -17,10 +17,11 @@ public class SuffixArr {
         for (int i = 0; i < str.length(); i++) {
             A[i] = new Suffix(i);
         }
-        Arrays.sort(A); // O(n^2 log n)
+        // O(n^2 log n)
+        Arrays.sort(A);
     }
 
-    public int lcp(int i) {
+    public int lcpLength(int i) {
         Suffix s1 = A[i], s2 = A[i - 1];
         int n = Math.min(s1.length(), s2.length());
         for (int j = 0; j < n; j++) {
