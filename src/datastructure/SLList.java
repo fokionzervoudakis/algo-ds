@@ -96,6 +96,17 @@ class SLList<T> {
         return T;
     }
 
+    static <T> Node<T> reverse(Node<T> N) {
+        Node<T> curr = N, prev = null;
+        while (curr != null) {
+            Node<T> next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
     static class Node<T> {
         T t;
         Node<T> next;
