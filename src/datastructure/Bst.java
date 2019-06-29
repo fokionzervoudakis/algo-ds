@@ -1,7 +1,9 @@
 package datastructure;
 
 /**
- Asymptotic analysis:
+ Note: randomly built binary search trees tend to be balanced.
+ <p>https://opendatastructures.org/ods-java/7_2_Treap_Randomized_Binary.html
+ <p>Asymptotic analysis:
  <ul>
  <li>space_avg=O(n)
  <li>insert_agv=O(log n)
