@@ -6,18 +6,18 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SlidingMaxTest {
-    private SlidingMax max;
+class SlidingWinTest_min {
+    private SlidingWin win;
 
     @BeforeEach
     void beforeEach() {
-        max = new SlidingMax();
+        win = new SlidingWin();
     }
 
     @Test
-    void itFindsTheSlidingMaxOfOneElement() {
+    void itFindsTheSlidingMinOfOneElement() {
         var expected = "[1]";
-        var actual = max.getMax(new int[] { 1 }, 1).toString();
+        var actual = win.min(new int[] { 1 }, 1).toString();
         assertEquals(expected, actual);
     }
 
@@ -31,23 +31,23 @@ class SlidingMaxTest {
         }
 
         @Test
-        void itFindsTheSlidingMaxWithWindowSizeOne() {
+        void itFindsTheSlidingMinWithWindowSizeOne() {
             var expected = "[1, 2, 3, 4, 5]";
-            var actual = max.getMax(A, 1).toString();
+            var actual = win.min(A, 1).toString();
             assertEquals(expected, actual);
         }
 
         @Test
-        void itFindsTheSlidingMaxWithWindowSizeTwo() {
-            var expected = "[2, 3, 4, 5]";
-            var actual = max.getMax(A, 2).toString();
+        void itFindsTheSlidingMinWithWindowSizeTwo() {
+            var expected = "[1, 2, 3, 4]";
+            var actual = win.min(A, 2).toString();
             assertEquals(expected, actual);
         }
 
         @Test
-        void itFindsTheSlidingMaxWithWindowSizeThree() {
-            var expected = "[3, 4, 5]";
-            var actual = max.getMax(A, 3).toString();
+        void itFindsTheSlidingMinWithWindowSizeThree() {
+            var expected = "[1, 2, 3]";
+            var actual = win.min(A, 3).toString();
             assertEquals(expected, actual);
         }
     }
@@ -62,23 +62,23 @@ class SlidingMaxTest {
         }
 
         @Test
-        void itFindsTheSlidingMaxWithWindowSizeOne() {
+        void itFindsTheSlidingMinWithWindowSizeOne() {
             var expected = "[5, 4, 3, 2, 1]";
-            var actual = max.getMax(A, 1).toString();
+            var actual = win.min(A, 1).toString();
             assertEquals(expected, actual);
         }
 
         @Test
-        void itFindsTheSlidingMaxWithWindowSizeTwo() {
-            var expected = "[5, 4, 3, 2]";
-            var actual = max.getMax(A, 2).toString();
+        void itFindsTheSlidingMinWithWindowSizeTwo() {
+            var expected = "[4, 3, 2, 1]";
+            var actual = win.min(A, 2).toString();
             assertEquals(expected, actual);
         }
 
         @Test
-        void itFindsTheSlidingMaxWithWindowSizeThree() {
-            var expected = "[5, 4, 3]";
-            var actual = max.getMax(A, 3).toString();
+        void itFindsTheSlidingMinWithWindowSizeThree() {
+            var expected = "[3, 2, 1]";
+            var actual = win.min(A, 3).toString();
             assertEquals(expected, actual);
         }
     }
@@ -93,25 +93,25 @@ class SlidingMaxTest {
         }
 
         @Test
-        void itFindsTheSlidingMaxWithWindowSizeTwo() {
-            var expected = "[10, 5, 7, 8, 8]";
-            var actual = max.getMax(A, 2).toString();
+        void itFindsTheSlidingMinWithWindowSizeTwo() {
+            var expected = "[5, 2, 2, 7, 7]";
+            var actual = win.min(A, 2).toString();
             assertEquals(expected, actual);
         }
 
         @Test
-        void itFindsTheSlidingMaxWithWindowSizeThree() {
-            var expected = "[10, 7, 8, 8]";
-            var actual = max.getMax(A, 3).toString();
+        void itFindsTheSlidingMinWithWindowSizeThree() {
+            var expected = "[2, 2, 2, 7]";
+            var actual = win.min(A, 3).toString();
             assertEquals(expected, actual);
         }
     }
 
     @Test
-    void itFindsTheSlidingMaxWithAPathologicalDataDistribution() {
-        var A = new int[] { 5, 4, 3, 2, 1, 6 };
-        var expected = "[6]";
-        var actual = max.getMax(A, 6).toString();
+    void itFindsTheSlidingMinWithAPathologicalDataDistribution() {
+        var A = new int[] { 2, 3, 4, 5, 6, 1 };
+        var expected = "[1]";
+        var actual = win.min(A, 6).toString();
         assertEquals(expected, actual);
     }
 }
