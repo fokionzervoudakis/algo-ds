@@ -15,20 +15,17 @@ class Lrs {
      @param str the target string
      @return the longest repeated substring in {@code str}
      */
-    String getLrs(String str) {
+    String max(String str) {
         // O(n^2 log n)
         SuffixArr arr = new SuffixArr(str);
-
         String lrs = "";
-
         for (int i = 1; i < str.length(); i++) {
-            int len = arr.lcpLength(i);
-            if (len > lrs.length()) {
+            int n = arr.lcpLength(i);
+            if (n > lrs.length()) {
                 int j = arr.index(i);
-                lrs = str.substring(j, j + len);
+                lrs = str.substring(j, j + n);
             }
         }
-
         return lrs;
     }
 }

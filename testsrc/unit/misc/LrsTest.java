@@ -16,25 +16,25 @@ class LrsTest {
 
     @Test
     void itReturnsAnEmptyStringWhenSubstringsDoNotRepeat() {
-        assertTrue(lrs.getLrs("").isEmpty());
-        assertTrue(lrs.getLrs("a").isEmpty());
-        assertTrue(lrs.getLrs("abc").isEmpty());
+        assertTrue(lrs.max("").isEmpty());
+        assertTrue(lrs.max("a").isEmpty());
+        assertTrue(lrs.max("abc").isEmpty());
     }
 
     @Test
     void itReturnsAStringWithOneCharacter() {
-        assertEquals("a", lrs.getLrs("aa"));
+        assertEquals("a", lrs.max("aa"));
     }
 
     @Test
     void itReturnsAStringWithManyCharacters() {
-        assertEquals("aa", lrs.getLrs("aaa"));
-        assertEquals("ana", lrs.getLrs("banana"));
-        assertEquals("abra", lrs.getLrs("abracadabra"));
+        assertEquals("aa", lrs.max("aaa"));
+        assertEquals("ana", lrs.max("banana"));
+        assertEquals("abra", lrs.max("abracadabra"));
     }
 
     @Test
     void itReturnsTheFirstLrs() {
-        assertEquals("aba", lrs.getLrs("ababbaabaa"));
+        assertEquals("aba", lrs.max("ababbaabaa"));
     }
 }
