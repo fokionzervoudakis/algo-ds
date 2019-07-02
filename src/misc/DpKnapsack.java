@@ -21,8 +21,8 @@ class DpKnapsack {
          @param W the item weights
          @param V the item values
          @param size the size of the knapsack
-         @return the max value that can be obtained from items with {@code w}
-         weights and {@code v} values when total weight is less than or equal to
+         @return the max value that can be obtained from items with {@code W}
+         weights and {@code V} values when total weight is less than or equal to
          {@code size}
          */
         @Memoization
@@ -61,8 +61,8 @@ class DpKnapsack {
          @param W the item weights
          @param V the item values
          @param size the size of the knapsack
-         @return the max value that can be obtained from items with {@code w}
-         weights and {@code v} values when total weight is less than or equal to
+         @return the max value that can be obtained from items with {@code W}
+         weights and {@code V} values when total weight is less than or equal to
          {@code size}
          */
         @Tabulation
