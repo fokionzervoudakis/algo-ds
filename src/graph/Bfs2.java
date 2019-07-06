@@ -5,12 +5,12 @@ import java.util.LinkedList;
 
 class Bfs2 {
     boolean isBipartite(Graph<Vertex> G, Vertex start) {
-        Deque<Vertex> Q = new LinkedList<>();
-        Q.add(start);
+        Deque<Vertex> D = new LinkedList<>();
+        D.add(start);
         start.visited = true;
         start.color = Color.WHITE;
-        while (!Q.isEmpty()) {
-            Vertex u = Q.removeFirst();
+        while (!D.isEmpty()) {
+            Vertex u = D.removeFirst();
             for (Vertex v : G.outEdges(u)) {
                 if (v.visited || v.color == u.color) {
                     return false;
@@ -19,7 +19,7 @@ class Bfs2 {
                     v.d = u.d + 1;
                     v.visited = true;
                     v.color = u.complement();
-                    Q.addLast(v);
+                    D.addLast(v);
                 }
             }
         }

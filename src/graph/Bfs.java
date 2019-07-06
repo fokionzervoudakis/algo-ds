@@ -20,17 +20,17 @@ class Bfs {
      @param start the source vertex in {@code G}
      */
     void bfs(Graph<Vertex> G, Vertex start) {
-        Deque<Vertex> Q = new LinkedList<>();
-        Q.add(start);
+        Deque<Vertex> D = new LinkedList<>();
+        D.add(start);
         start.visited = true;
-        while (!Q.isEmpty()) {
-            Vertex u = Q.removeFirst();
+        while (!D.isEmpty()) {
+            Vertex u = D.removeFirst();
             for (Vertex v : G.outEdges(u)) {
                 if (!v.visited) {
                     v.setParent(u);
                     v.d = u.d + 1;
                     v.visited = true;
-                    Q.addLast(v);
+                    D.addLast(v);
                 }
             }
         }
