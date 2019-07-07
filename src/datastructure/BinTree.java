@@ -1,15 +1,14 @@
 package datastructure;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
 /**
  Asymptotic analysis:
  <ul>
-
- <li>depth_time_avg=O(log n)
- <li>depth_time_worst=O(n)
 
  <li>height_time_worst=O(n)
 
@@ -20,12 +19,12 @@ import java.util.Stack;
  <li>postOrder_time_worst=O(n)
 
  <li>itPreOrder_time_worst=O(n)
+ <li>itLevelOrder_time_worst=O(n)
 
  <li>invert_time_worst=O(n)
 
  <li>lca_time_worst=O(n)
 
- <li>space_avg=O(log n)
  <li>space_worst=O(n)
 
  </ul>
@@ -75,13 +74,16 @@ class BinTree {
         return itPreOrder(root);
     }
 
+    List<Node> itLevelOrder() {
+        return itLevelOrder(root);
+    }
+
     Node invert() {
         return invert(root);
     }
     //</editor-fold>
 
     int height(Node N) {
-        // height = O(log n) + 1
         if (N == null) {
             return -1;
         }
@@ -135,6 +137,29 @@ class BinTree {
                 }
                 if (N2.l != null) {
                     S.push(N2.l);
+                }
+            }
+        }
+        return L;
+    }
+
+    List<Node> itLevelOrder(Node N1) {
+        List<Node> L = new ArrayList<>();
+        if (N1 != null) {
+            Deque<Node> D = new LinkedList<>();
+            D.add(N1);
+            while (!D.isEmpty()) {
+                int n = D.size();
+                while (n > 0) {
+                    Node N2 = D.removeFirst();
+                    L.add(N2);
+                    if (N2.l != null) {
+                        D.addLast(N2.l);
+                    }
+                    if (N2.r != null) {
+                        D.addLast(N2.r);
+                    }
+                    n--;
                 }
             }
         }
