@@ -2,7 +2,8 @@ package misc;
 
 class DpChange {
     /**
-     Asymptotic analysis:
+     Uses iterative (bottom-up) dynamic programming with tabulation to solve a
+     variation of the knapsack problem.
      <ul>
      <li>time_worst=O(mn)
      <li>space_worst=O(n)
