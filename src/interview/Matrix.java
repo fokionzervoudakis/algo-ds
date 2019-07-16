@@ -22,7 +22,6 @@ class Matrix {
             }
         }
         return tmp;
-
     }
 
     int[][] swapColumns(int[][] M) {
