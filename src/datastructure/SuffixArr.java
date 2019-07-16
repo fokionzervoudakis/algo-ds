@@ -9,39 +9,46 @@ import java.util.Arrays;
 public class SuffixArr {
     String str;
 
-    Suffix[] A;
+    Suffix[] A, B;
 
     public SuffixArr(String str) {
         this.str = str;
-        this.A = new Suffix[str.length()];
+        A = new Suffix[str.length()];
         for (int i = 0; i < str.length(); i++) {
             A[i] = new Suffix(i);
         }
-        // O(n^2 log n)
-        Arrays.sort(A);
+        B = A.clone();
+        Arrays.sort(B);
     }
 
     public int lcpLength(int i) {
-        Suffix s1 = A[i], s2 = A[i - 1];
+        return lcpLength(B[i], B[i - 1]);
+    }
+
+    public int lcpLength(Suffix s1, Suffix s2) {
         int n = Math.min(s1.length(), s2.length());
-        for (int j = 0; j < n; j++) {
-            if (s1.charAt(j) != s2.charAt(j)) {
-                return j;
+        for (int i = 0; i < n; i++) {
+            if (s1.charAt(i) != s2.charAt(i)) {
+                return i;
             }
         }
         return n;
     }
 
-    public int index(int i) {
-        return A[i].index;
+    public int indexAt(int i) {
+        return B[i].index;
+    }
+
+    public Suffix suffixAt(int i) {
+        return A[i];
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(A);
+        return Arrays.toString(A) + ',' + Arrays.toString(B);
     }
 
-    class Suffix implements Comparable<Suffix> {
+    public class Suffix implements Comparable<Suffix> {
         int index;
 
         Suffix(int index) {
@@ -71,7 +78,7 @@ public class SuffixArr {
 
         @Override
         public String toString() {
-            return str.substring(index);
+            return str.substring(index) + ":" + index;
         }
     }
 }
