@@ -73,7 +73,7 @@ class ExternalSort {
             ReadBuffer min = null;
             for (var buffer : readBuffers) {
                 String s1, s2 = buffer.next();
-                if (min == null || (s1 = min.next()) != null && s2 != null && s1.compareTo(s2) > 0) {
+                if ((min == null) || ((s1 = min.next()) != null && s2 != null && s1.compareTo(s2) > 0)) {
                     min = buffer;
                 }
             }
