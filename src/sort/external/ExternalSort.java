@@ -58,7 +58,7 @@ class ExternalSort {
      */
     private void merge(List<String> inPaths, String outPath) throws IOException {
         // Initialize the input...
-        // TODO replace single-pass merging with multi-pass merging
+        // TODO replace single-pass merge with multi-pass merge
         var readBuffers = new ArrayList<ReadBuffer>();
         for (var inPath : inPaths) {
             readBuffers.add(new ReadBuffer(inPath));
@@ -69,7 +69,7 @@ class ExternalSort {
 
         while (true) {
             // Find the buffer with the minimum element...
-            // TODO use a min-heap to find minimum elements
+            // TODO use a min-heap to find min elements
             ReadBuffer min = null;
             for (var buffer : readBuffers) {
                 String s1, s2 = buffer.next();
