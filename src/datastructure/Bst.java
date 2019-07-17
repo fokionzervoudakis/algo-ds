@@ -51,8 +51,6 @@ class Bst extends BinTree {
         return true;
     }
 
-    // TODO node removal
-
     boolean isBst() {
         return isBst(root, null, null);
     }
@@ -67,6 +65,10 @@ class Bst extends BinTree {
         } else {
             return isBst(N.l, min, N.val) && isBst(N.r, N.val, max);
         }
+    }
+
+    void remove(Node N) {
+        // TODO
     }
 
     @Override

@@ -60,7 +60,9 @@ class AATree {
         }
     }
 
-    // TODO node removal
+    void remove(Node N) {
+        // TODO
+    }
 
     @Override
     public String toString() {
