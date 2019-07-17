@@ -93,8 +93,4 @@ class BitKata {
         }
         return count;
     }
-
-    static int isBitPalindrome(int n) {
-        return -1; // TODO
-    }
 }
