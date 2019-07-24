@@ -16,8 +16,7 @@ class Queue<T> {
     // Set the default initial capacity to five (for no particular reason).
     T[] A = (T[]) new Object[5];
 
-    int hed = 0;
-    int len = 0;
+    int hed = 0, len = 0;
 
     void enqueue(T t) {
         if (len + 1 > A.length) {

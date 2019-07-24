@@ -56,6 +56,16 @@ class BinHeap<T> {
         }
     }
 
+    private int parent(int i) {
+        return (i - 1) / 2;
+    }
+
+    private void resize() {
+        T[] B = (T[]) new Object[Math.max(len * 2, 1)];
+        System.arraycopy(A, 0, B, 0, len);
+        A = B;
+    }
+
     T remove() {
         T t = A[0];
         A[0] = A[--len];
@@ -85,10 +95,6 @@ class BinHeap<T> {
         } while (i >= 0);
     }
 
-    private int parent(int i) {
-        return (i - 1) / 2;
-    }
-
     private int left(int i) {
         return (i * 2) + 1;
     }
@@ -116,12 +122,6 @@ class BinHeap<T> {
         }
         reverse(A);
         len = n;
-    }
-
-    private void resize() {
-        T[] B = (T[]) new Object[Math.max(len * 2, 1)];
-        System.arraycopy(A, 0, B, 0, len);
-        A = B;
     }
 
     private static <T> void reverse(T[] A) {
