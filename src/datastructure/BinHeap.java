@@ -78,15 +78,11 @@ class BinHeap<T> {
 
     private void siftDown(int i) {
         do {
-            int l = left(i);
-            int r = right(i);
-            int j;
+            int l = left(i), r = right(i), j = -1;
             if (r < len && c.compare(A[r], A[i]) < 0) {
                 j = (c.compare(A[l], A[r]) < 0) ? l : r;
             } else if (l < len && c.compare(A[l], A[i]) < 0) {
                 j = l;
-            } else {
-                j = -1;
             }
             if (j >= 0) {
                 swap(A, i, j);
