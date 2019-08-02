@@ -44,7 +44,7 @@ class HashTable<K, V> {
 
     V remove(K k) {
         int i = hash(k);
-        Node<K, V> curr = A[i], prev = null;
+        Node<K, V> prev = null, curr = A[i];
         while (curr != null) {
             if (k.equals(curr.k)) {
                 if (curr.next == null) {

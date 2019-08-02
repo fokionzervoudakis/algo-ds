@@ -21,7 +21,7 @@ class Bst extends BinTree {
     }
 
     private Node getLast(int val) {
-        Node curr = root, prev = null;
+        Node prev = null, curr = root;
         while (curr != null) {
             prev = curr;
             if (val < curr.val) {
