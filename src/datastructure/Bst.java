@@ -20,21 +20,6 @@ class Bst extends BinTree {
         return addChild(getLast(val), new Node(val));
     }
 
-    private Node getLast(int val) {
-        Node prev = null, curr = root;
-        while (curr != null) {
-            prev = curr;
-            if (val < curr.val) {
-                curr = curr.l;
-            } else if (val > curr.val) {
-                curr = curr.r;
-            } else {
-                return curr;
-            }
-        }
-        return prev;
-    }
-
     private boolean addChild(Node P, Node N) {
         if (P == null) {
             root = N;
@@ -49,6 +34,21 @@ class Bst extends BinTree {
             N.p = P;
         }
         return true;
+    }
+
+    private Node getLast(int val) {
+        Node prev = null, curr = root;
+        while (curr != null) {
+            prev = curr;
+            if (val < curr.val) {
+                curr = curr.l;
+            } else if (val > curr.val) {
+                curr = curr.r;
+            } else {
+                return curr;
+            }
+        }
+        return prev;
     }
 
     boolean isBst() {

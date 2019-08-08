@@ -35,8 +35,8 @@ class Lru<K, V> {
             remove(M.get(k));
         }
         Node<K, V> N = new Node<>(k, v);
-        M.put(k, N);
         add(N);
+        M.put(k, N);
         if (M.size() > len) {
             remove(M.remove(tail.prev.k));
         }
