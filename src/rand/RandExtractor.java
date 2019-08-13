@@ -18,7 +18,7 @@ class RandExtractor {
      is {@code P(H)=p} and {@code P(T)=1-p=q} respectively.
      <p>If a biased coin with {@code p=0.6} is tossed twice and cases {@code HH}
      and {@code TT} are discarded, then {@code HT} and {@code TH} will occur with
-     equal probabilities (assumed independence of successive tosses):
+     equal probabilities (assuming independence of successive tosses):
      <ul>
      <li>{@code P(HH)=P(H)xP(H)=0.36}
      <li>{@code P(TT)=P(T)xP(T)=0.16}
