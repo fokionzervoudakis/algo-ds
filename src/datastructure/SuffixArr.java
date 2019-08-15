@@ -25,10 +25,10 @@ public class SuffixArr {
         return lcpLength(B[i], B[i - 1]);
     }
 
-    public int lcpLength(Suffix s1, Suffix s2) {
-        int n = Math.min(s1.length(), s2.length());
+    public int lcpLength(Suffix S1, Suffix S2) {
+        int n = Math.min(S1.length(), S2.length());
         for (int i = 0; i < n; i++) {
-            if (s1.charAt(i) != s2.charAt(i)) {
+            if (S1.charAt(i) != S2.charAt(i)) {
                 return i;
             }
         }
