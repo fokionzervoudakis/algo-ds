@@ -14,8 +14,7 @@ public class QuickSelect {
      <li>time_worst=O(n^2) with sorted data and the first element as pivot
      <li>space_worst=O(1)
      </ul>
-     <p>Based on Lomuto's partition scheme, which uses {@code x=A[r]} as pivot
-     element.
+     <p>Based on Lomuto's partition scheme, which uses {@code x=A[r]} as the pivot element.
      <p>Use the Knuth shuffle to add randomness and optimize performance (CLRS).
      <p>https://algs4.cs.princeton.edu/23quicksort/
 
