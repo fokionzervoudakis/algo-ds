@@ -17,7 +17,8 @@ javac \
 
 junit=lib/test/junit-platform-console-standalone-1.3.2.jar
 
-java -cp .:${junit}:build/classes/:build/testclasses/:lib/* \
+# enable assertions
+java -ea -cp .:${junit}:build/classes/:build/testclasses/:lib/* \
 	org.junit.platform.console.ConsoleLauncher \
 		--details tree \
 		--scan-classpath \
