@@ -2,9 +2,9 @@ package misc;
 
 class BoyerM {
     /**
-     Uses the Boyer-Moore majority vote algorithm to find the majority element
-     (i.e. the element that appears more than {@code n/2} times) in an array of
-     {@code n} integers.
+     Uses the Boyer-Moore majority vote algorithm to find the element that
+     appears more than {@code n/2} times in an array of {@code n} integers (i.e.
+     the majority element).
      <p>The algorithm will report one of the elements even if the array contains
      no majority element. A second pass must be used to determine whether the
      element returned is the majority element.
