@@ -2,10 +2,6 @@
 
 This project implements various algorithms and data structures.
 
-## Dependencies
-
-- *Java 12*
-
 ## Deployment
 
 Clone the repository and build:
