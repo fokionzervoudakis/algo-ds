@@ -7,4 +7,3 @@ indent_style=space
 [*.sh]
 indent_style=tab
 tab_width=4
-
